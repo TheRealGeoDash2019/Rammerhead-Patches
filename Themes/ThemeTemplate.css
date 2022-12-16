@@ -1,0 +1,18 @@
+/*
+  @name     Dark Theme for Rammerhead
+  @author   TheRealGeoDash2019
+  @version  0.0.1
+*/
+
+html.custom-theme {
+  --browser-icon-color: #ccc; /* Disabled/Darkened Button Colors for Buttons like New Tab and Disabled Buttons */ 
+  --browser-accent-dark: #202124; /* Browser Accent Dark */
+  --browser-accent: #323639; /* Browser Accent */
+  --browser-tab-strip: var(--browser-accent-dark); /* Background behind the Tabs*/
+  --browser-tab-divider: #4a4d51; /* Divider between the Tabs */
+  --addressbar-highlight: rgb(255 255 255 / 10%); /* Highlighted Search Result in the Browser */
+  --browser-text-color-primary: #ddd; /* Browser Text Color for Elements like Search Bar and Text */
+  --browser-text-color-secondary: #fff; /* Browser Text Color Secondary for Elements like Highlighted Search */
+  --browser-active-icon-color: hsl(210deg 3% 45%); /* Active Button Colors for Buttons like Back, Forward, Refresh*/
+  --browser-logo-filter: invert(1); /* Rammerhead Logo Filter on the New Tab Page */
+}
