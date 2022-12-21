@@ -9,3 +9,4 @@ javascript:(() => {window.localStorage.setItem(`debug:enableRemoteInject`,true);
 # Features:
 - [Basic Shortcuts](/Shortcuts.md)
 - [Basic Theming w/ Default Dark Mode on Rammerhead Browsers](/Themes/README.md)
+- [Revamped Settings Page](/Settings.md)
