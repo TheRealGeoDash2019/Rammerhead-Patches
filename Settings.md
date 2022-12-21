@@ -17,3 +17,6 @@ HTTP Proxy configuration settings (just like in rh://settings)
 About Browser
 -----------
 Basic Information about the Browser and the Profile
+
+# How to Access the Settings Page
+Open [the Settings Page](https://rh.therealgeodash.workers.dev/settings) in the Rammerhead Browser
