@@ -5,3 +5,15 @@ Custom Settings Page for Patched RH Browsers
 Theming
 -----------
 Settings related to Custom Themes and Toggling between them.
+
+Customize Browser Tab
+-----------
+Configure the Browser Tab Favicon and Title (just like in rh://settings)
+
+Proxy Configuration
+-----------
+HTTP Proxy configuration settings (just like in rh://settings)
+
+About Browser
+-----------
+Basic Information about the Browser and the Profile
