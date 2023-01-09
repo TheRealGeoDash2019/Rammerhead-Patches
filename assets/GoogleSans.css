@@ -3,7 +3,7 @@
     font-style: regular;
     font-weight: 400;
     font-display: swap;
-    src: url(https://rtc.geomusic.dev/assets/fonts/GoogleSans-Regular.ttf) format('truetype');
+    src: url(/assets/fonts/GoogleSans-Regular.ttf) format('truetype');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: url(https://rtc.geomusic.dev/assets/fonts/GoogleSans-Italic.ttf) format('truetype');
+    src: url(/assets/fonts/GoogleSans-Italic.ttf) format('truetype');
 }
 
 @font-face {
@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: 600;
     font-display: swap;
-    src: url(https://rtc.geomusic.dev/assets/fonts/GoogleSans-Medium.ttf) format('truetype');
+    src: url(/assets/fonts/GoogleSans-Medium.ttf) format('truetype');
 }
 
 @font-face {
@@ -27,7 +27,7 @@
     font-style: italic;
     font-weight: 600;
     font-display: swap;
-    src: url(https://rtc.geomusic.dev/assets/fonts/GoogleSans-MediumItalic.ttf) format('truetype');
+    src: url(/assets/fonts/GoogleSans-MediumItalic.ttf) format('truetype');
 }
 
 @font-face {
@@ -35,7 +35,7 @@
     font-style: normal;
     font-weight: 700;
     font-display: swap;
-    src: url(https://rtc.geomusic.dev/assets/fonts/GoogleSans-Bold.ttf) format('truetype');
+    src: url(/assets/fonts/GoogleSans-Bold.ttf) format('truetype');
 }
 
 @font-face {
@@ -43,5 +43,5 @@
     font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: url(https://rtc.geomusic.dev/assets/fonts/GoogleSans-BoldItalic.ttf) format('truetype');
+    src: url(/assets/fonts/GoogleSans-BoldItalic.ttf) format('truetype');
 }
