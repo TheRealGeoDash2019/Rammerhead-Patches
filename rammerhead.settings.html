@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html class="custom-theme">
+  <head>
+    <title>Rammerhead External Settings</title>
+    <link rel="icon" class="settings-icon">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      @import url("https://rtc.geomusic.dev/assets/GoogleSans.css");
+      
+      html.custom-theme {
+        --browser-accent-color: #202020;
+        --browser-accent-color-dark: #151515;
+        --browser-text-primary-color: #fff;
+        --browser-text-secondary-color: #ddd;
+        --browser-logo-filter: "";
+      }
+      
+      html, body {
+        font-family: "Google Sans", sans-serif !important;
+        background: var(--browser-accent-color);
+        color: var(--browser-text-primary-color);
+      }
+      
+      html.no-rh body {
+        padding: 0px;
+        margin: 0px;
+      }
+      
+      .hidden {
+        display: none !important;
+      }
+      
+      div.settings-header {
+        user-select: none !important;
+        padding-top: 1vh;
+        padding-left: 1vw;
+        font-size: 30px;
+        font-weight: 600;
+        display: flex;
+      }
+      
+      div.setting {
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      div.setting label.title span {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      
+      div.setting div.info {
+        user-select: none !important;
+      }
+      
+      div.setting p.setting-info {
+        margin-top: 4px;
+        color: var(--browser-text-secondary-color);
+      }
+    </style>
+    <style>
+      :root {
+        --switch-active: goldenrod;
+      }
+      .switch {
+        scale: 80%;
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        filter: var(--browser-logo-filter);
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #888;
+        -webkit-transition: .2s;
+        transition: .2s;
+        border-radius: 34px;
+        height: 24px;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 36px;
+        width: 36px;
+        left: 0px;
+        bottom: -6px;
+        background-color: #555;
+        -webkit-transition: .2s;
+        transition: .2s;
+        border-radius: 50%;
+      }
+      input:checked + .slider {
+        background-color: var(--switch-active);
+      }
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      input:checked + .slider:before {
+        filter: brightness(0.5);
+        background-color: var(--switch-active);
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      
+      input[type="text"] {
+        font-size: 14px;
+        font-family: "Google Sans", sans-serif !important;
+        width: 50vw;
+        color: var(--browser-text-primary-color);
+        appearance: none;
+        background: var(--browser-accent-color-dark);
+        padding: 8px;
+        border: none;
+        border-bottom: 4px solid transparent;
+      }
+      
+      input[type="text"]:focus-visible {
+        outline: none;
+        border-bottom: 4px solid #353535;
+      }
+      
+      .browser-favicon-preview {
+        display: none;
+        user-select: none;
+      }
+      
+      .browser-favicon-preview[src] {
+        display: block;
+        width: 24px;
+        height: 24px;
+        padding: 8px;
+      }
+      
+      .favicon-input {
+        display: flex;
+        align-items: center;
+      }
+      
+      .no-rammerhead {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      .no-rammerhead-warning {
+        font-size: 24px;
+      }
+      
+      .no-rammerhead-warning a {
+        text-decoration: none;
+        color: #ddd;
+      }
+      
+      .no-rammerhead-warning a:hover {
+        text-decoration: underline;
+        color: white;
+      }
+      
+      .no-inject {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+      
+      .no-inject button.request-inject {
+        background: #050505;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: "Google Sans";
+      }
+      
+      .no-inject button.request-inject:active {
+        background: #181818;
+      }
+      
+      .no-inject button.request-inject:hover {
+        background: #101010;
+      }
+      
+      .svg-icon {
+        fill: var(--browser-text-secondary-color);
+        color: var(--browser-text-secondary-color);
+        opacity: 0.7;
+        transition: 0.2s;
+        padding: 6px;
+      }
+      
+      .svg-icon:hover {
+        fill: var(--browser-text-primary-color);
+        color: var(--browser-text-primary-color);
+        opacity: 1;
+      }
+      
+      .clickable {
+        cursor: pointer;
+      }
+      
+      .modal-overlay {
+        background: #000a;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .modal-close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 99999;
+      }
+      
+      .modal-content {
+        width: 90vw;
+        height: 90vh;
+        background: white;
+        color: black;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-rammerhead hidden">
+      <img src="https://rh.settings.lhost.dev/logo.png">
+      <div class="no-rammerhead-warning">Use a <a href="https://direct.rammerhead.org">Rammerhead Browser</a> to view this Page</div>
+    </div>
+    <div class="no-inject hidden">
+      <button class="request-inject">
+        Inject Rammerhead Settings
+      </button>
+    </div>
+    <div class="settings-header">
+      <div>Theming</div>
+      <div class="upload-css" title="Upload Local CSS">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="svg-icon clickable"><path d="M11 20v-8.15l-2.6 2.6L7 13l5-5 5 5-1.4 1.45-2.6-2.6V20ZM4 9V6q0-.825.588-1.412Q5.175 4 6 4h12q.825 0 1.413.588Q20 5.175 20 6v3h-2V6H6v3Z"/></svg>
+      </div>
+      <div class="browse-themes" title="Browse Themes">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="svg-icon clickable"><path d="m10 19-2.5-5.5L2 11l5.5-2.5L10 3l2.5 5.5L18 11l-5.5 2.5Zm8 2-1.25-2.75L14 17l2.75-1.25L18 13l1.25 2.75L22 17l-2.75 1.25Z"/></svg>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Dark Theme / Custom Theme</span>
+          </label>
+          <p class="setting-info">
+            Enables Dark/Custom Theme on the Host Rammerhead Browser
+          </p>
+        </div>
+        <div class="toggle">
+          <label class="switch">
+            <input type="checkbox" checked class="custom-toggle">
+            <span class="slider"></span>
+          </label>
+        </div>
+      </div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Custom Theme URL</span>
+          </label>
+          <p class="setting-info">
+            Custom Theme URL for Rammerhead Browser
+          </p>
+        </div>
+        <div class="input">
+          <input class="custom-url" type="text" placeholder="Waiting for Connection...">
+        </div>
+      </div>
+    </div>
+    <div class="settings-header">
+      Customize Browser Tab
+    </div>
+    <hr>
+    <div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Browser Tab Title</span>
+          </label>
+          <p class="setting-info">
+            Changes the Rammerhead Browser Title
+          </p>
+        </div>
+        <div class="input">
+          <input class="browser-title" type="text" placeholder="Rammerhead Browser">
+        </div>
+      </div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Browser Tab Favicon URL</span>
+          </label>
+          <p class="setting-info">
+            Changes the Rammerhead Browser Favicon
+          </p>
+        </div>
+        <div class="favicon-input">
+          <img class="browser-favicon-preview" oncontextmenu="return false;">
+          <input class="browser-favicon" type="text" placeholder="Default FavIcon">
+        </div>
+      </div>
+    </div>
+    <div class="settings-header">
+      Proxy Configuration
+    </div>
+    <hr>
+    <div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>HTTP Proxy URL</span>
+          </label>
+          <p class="setting-info">
+            Route Requests to a HTTP Proxy to get a Different IP
+          </p>
+        </div>
+        <div class="input">
+          <input class="http-proxy" type="text" placeholder="http://username:password@proxyipaddress:proxyport">
+        </div>
+      </div>
+    </div>
+    <div class="settings-header">
+      <div>
+        About Browser
+      </div>
+      <div class="copy-details" title="Copy Browser Details">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="svg-icon clickable"><path d="M5 22q-.825 0-1.413-.587Q3 20.825 3 20V6h2v14h11v2Zm4-4q-.825 0-1.412-.587Q7 16.825 7 16V4q0-.825.588-1.413Q8.175 2 9 2h9q.825 0 1.413.587Q20 3.175 20 4v12q0 .825-.587 1.413Q18.825 18 18 18Zm0-2h9V4H9v12Zm0 0V4v12Z"/></svg>
+      </div>
+    </div>
+    <hr>
+    <div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Profile Created At</span>
+          </label>
+        </div>
+        <div class="input">
+          <input disabled class="creation-date" type="text" placeholder="Unknown">
+        </div>
+      </div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Browser Version</span>
+          </label>
+        </div>
+        <div class="input">
+          <input disabled class="browser-version" type="text" placeholder="Unknown">
+        </div>
+      </div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Rammerhead Version</span>
+          </label>
+        </div>
+        <div class="input">
+          <input disabled class="rammerhead-version" type="text" placeholder="Unknown">
+        </div>
+      </div>
+    </div>
+    <div class="modal-overlay" style="display: none;">
+      <div class="modal-close">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" class="svg-icon clickable"><path d="M6.35 20.025 4 17.65 9.625 12 4 6.35l2.35-2.4L12 9.6l5.65-5.65L20 6.35 14.375 12 20 17.65l-2.35 2.375-5.65-5.65Z"/></svg>
+      </div>
+      <div class="modal-content">
+        
+      </div>
+    </div>
+    <script>
+      const favIconShortcuts = {
+        "microsoft": "/static-assets/favicon-presets/microsoft.ico",
+        "gmail": "/static-assets/favicon-presets/gmail.ico",
+        "docs": "/static-assets/favicon-presets/docs.ico",
+        "drive": "/static-assets/favicon-presets/drive.png",
+        "google": "/static-assets/favicon-presets/google.ico",
+        "teams": "/static-assets/favicon-presets/microsoft-teams.png",
+        "word": "/static-assets/favicon-presets/word.ico",
+        "outlook": "/static-assets/favicon-presets/outlook.ico"
+      }
+      
+      const uploadCSS = async function() {
+        const res = await showOpenFilePicker({
+          multiple: false,
+          excludeAcceptAllOption: false,
+          types: [{
+            description: "Theme Files",
+            accept: {
+              "text/*": ['.css']
+            }
+          }]
+        });
+        if (!res) return;
+        const file = await res[0].getFile();
+        return "data:text/css;base64," + btoa(await file.text());
+      }
+      
+      const themeSettingsPage = function(url) {
+        Array.from(document.querySelectorAll("link.user-theme")).map(e => e.remove());
+        const newTheme = document.createElement("link");
+        newTheme.rel="stylesheet";
+        newTheme.href=url;
+        newTheme.className = "user-theme";
+        document.head.appendChild(newTheme);
+      }
+    
+      const injectScript = function() {
+        window.parent.localStorage.setItem(`debug:enableRemoteInject`, true);
+        let o = window.parent.document.createElement("script");
+        o.src = "https://rh.therealgeodash.workers.dev/require.js";
+        o.id = "require";
+        window.parent.document.head.appendChild(o);
+        let o2 = window.parent.document.createElement("script");
+        o2.src = "https://rh.therealgeodash.workers.dev/injectRammerhead.js";
+        o2.id = "rammerhead-ext";
+        window.parent.document.head.appendChild(o2);
+      }
+      
+      const hideWindow = function() {
+        document.querySelector(".no-rammerhead").classList.remove("hidden");
+        document.querySelectorAll(".setting").forEach(e => e.parentNode.remove());
+        document.querySelectorAll(".settings-header").forEach(e => e.remove());
+        document.querySelectorAll("hr").forEach(e => e.remove());
+        document.querySelector("html").classList.add("no-rh");
+      }
+      
+      const getQueryParams = function() {
+        return Object.fromEntries(window.location.search.slice(1).split("&").map(e => e.split("=")));
+      }
+      
+      const isTrue = function(_) {
+        if (_ instanceof Array) return (_.length > 0);
+        if (_ instanceof Object) return true;
+        if (typeof _ === "boolean") return _;
+        return (_ === "true" || _ === "yes" || parseInt(_) >= 1 || parseInt(_) >= "1");
+      }
+      
+      const checkForDRC = function() {
+        const dRC = getQueryParams().disableRammerheadChecks;
+        if (dRC) {
+          if (isTrue(dRC)) {
+            console.log("No Rammerhead Injection");
+            return document.querySelector(".no-inject").classList.remove("hidden");
+          }
+        }
+        return hideWindow();
+      }
+    
+      window.addEventListener("load", () => {
+        if (!window["%is-hammerhead%"]) return checkForDRC();
+        if (!window.parent) return checkForDRC();
+        if (window.parent.location.href === "about:blank") return checkForDRC();
+        document.querySelector("link[rel='icon']").href = (`https://student.lhost.dev/logo.png`);
+        if (!window.parent.rhExtInject) {
+          console.log("No Rammerhead Injection")
+          document.querySelector(".no-inject").classList.remove("hidden")
+        } else {
+          window.parent.dispatchEvent(new CustomEvent("requestThemeConfig"))
+          window.parent.dispatchEvent(new CustomEvent("requestTabConfig"))
+          window.parent.dispatchEvent(new CustomEvent("requestBrowserInfo"))
+        }
+      })
+      
+      window.addEventListener("themeState", ({themeState}) => {
+        if (themeState) {
+          if (themeState.theme) {
+            if (themeState.theme.startsWith("rh://")) {
+              themeSettingsPage(null);
+              document.querySelector("input.custom-url").placeholder = themeState.theme;
+            } else {
+              themeSettingsPage(themeState.theme);
+              document.querySelector("input.custom-url").value = themeState.theme;
+            }
+          }
+          if (!!themeState.active) {
+            console.log("Dark Mode: Active")
+            //document.querySelector("input.custom-toggle").setAttribute("checked", "");
+            document.querySelector("input.custom-toggle").checked = true;
+          } else {
+            console.log("Dark Mode: Inactive")
+            //document.querySelector("input.custom-toggle").removeAttribute("checked");
+            document.querySelector("input.custom-toggle").checked = false;
+          }
+        }
+      })
+      
+      window.addEventListener("tabState", ({tabState}) => {
+        if (tabState) {
+          const actualfavIcon = new URL((tabState.favicon || "/favicon.png"), `https://${tabState.hostname}`);
+          const title = (tabState.title || "Rammerhead Browser");
+          
+          if (title) {
+            if (title === "Rammerhead Browser") {
+              document.querySelector("input.browser-title").placeholder = title;
+            } else {
+              document.querySelector("input.browser-title").value = title;
+            }
+          }
+          
+          if (actualfavIcon) {
+            document.querySelector(".browser-favicon-preview").src = actualfavIcon;
+          }
+          
+          if (tabState.favicon) {
+            document.querySelector("input.browser-favicon").value = tabState.favicon;
+          }
+        }
+      })
+      
+      window.addEventListener("proxyState", ({proxyState}) => {
+        if (proxyState) {
+          if (proxyState.endpoint) {
+            document.querySelector("input.http-proxy").value = proxyState.endpoint;
+          }
+        }
+      })
+      
+      window.addEventListener("infoState", ({infoState}) => {
+        if (infoState) {
+          globalThis.rhDetails = infoState;
+          document.querySelector("input.creation-date").value = new Date(infoState.profileCreatedAt).toString();
+          document.querySelector("input.browser-version").value = infoState.browserVersion;
+          document.querySelector("input.rammerhead-version").value = infoState.rammerheadVersion;
+        }
+      })
+    
+    
+      const toggleTheme = function(_) {
+        if (!window["%is-hammerhead%"]) return;
+        if (!window.parent) return;
+        try {
+          if (window.parent.toggleTheme) {
+            window.parent.toggleTheme(_);
+            return _;
+          }
+        } catch (_) {
+          return null;
+        }
+      }
+      
+      const toggleThemeURL = function(_) {
+        if (!window["%is-hammerhead%"]) return;
+        if (!window.parent) return;
+        try {
+          if (window.parent.setThemeURL) {
+            themeSettingsPage(_);
+            window.parent.setThemeURL(_);
+            return _;
+          }
+        } catch (_) {
+          return null;
+        }
+      }
+      
+      const toggleBrowserTitle = function(_) {
+        if (!window["%is-hammerhead%"]) return;
+        if (!window.parent) return;
+        try {
+          if (window.parent.setBrowserTitle) {
+            window.parent.setBrowserTitle(_);
+            return _;
+          }
+        } catch (_) {
+          return null;
+        }
+      }
+      
+      const translateFavIcon = function(_) {
+        let temp = _;
+        for(const entry of Object.entries(favIconShortcuts)) {
+          temp = temp.replace(`%{${entry[0]}}%`, entry[1]);
+        }
+        return temp;
+      }
+      
+      const toggleBrowserFavIcon = function(_) {
+        if (!window["%is-hammerhead%"]) return;
+        if (!window.parent) return;
+        try {
+          if (window.parent.setBrowserFavIcon) {
+            window.parent.setBrowserFavIcon(_);
+            return _;
+          }
+        } catch (_) {
+          return null;
+        }
+      }
+      
+      const toggleHTTPProxy = function(_) {
+        if (!window["%is-hammerhead%"]) return;
+        if (!window.parent) return;
+        try {
+          if (window.parent.setHTTPProxy) {
+            window.parent.setHTTPProxy(_);
+            return _;
+          }
+        } catch (_) {
+          return null;
+        }
+      }
+      
+      document.querySelector("input.custom-toggle").addEventListener("change", ({target}) => {
+        try {
+          toggleTheme(!!target.checked)
+        } catch (_) {
+          console.warn(_);
+        }
+      })
+      
+      document.querySelector("input.custom-url").addEventListener("change", ({target}) => {
+        try {
+          console.log("Set Theme to: %s", toggleThemeURL(target.value.replaceAll(" ", "")))
+        } catch (_) {
+          console.warn(_);
+        }
+      })
+      
+      document.querySelector("input.browser-title").addEventListener("change", ({target}) => {
+        try {
+          console.log("Set Browser Title to: %s", toggleBrowserTitle(target.value))
+        } catch (_) {
+          console.warn(_);
+        }
+      })
+      
+      document.querySelector("input.browser-favicon").addEventListener("change", ({target}) => {
+        try {
+          console.log("Set Browser FavIcon to: %s", toggleBrowserFavIcon(translateFavIcon(target.value.replaceAll(" ", ""))))
+        } catch (_) {
+          console.warn(_);
+        }
+      })
+      
+      document.querySelector("input.http-proxy").addEventListener("change", ({target}) => {
+        try {
+          console.log("Set HTTP Proxy to: %s", toggleHTTPProxy(target.value.replaceAll(" ", "")))
+        } catch (_) {
+          console.warn(_);
+        }
+      })
+      
+      const showOverlay = function(...elements) {
+        document.querySelector("body").style.overflow = "hidden";
+        document.querySelector(".modal-overlay").style.display = "";
+        for (const element of elements) {
+          document.querySelector(".modal-overlay .modal-content").appendChild(element);
+        }
+      }
+
+      const closeOverlay = function() {
+        document.querySelector("body").style.overflow = "";
+        document.querySelector(".modal-overlay").style.display = "none";
+        Array.from(document.querySelector(".modal-overlay .modal-content").children).forEach(e => e.remove());
+      }
+      
+      const loadURLOverlay = function(url) {
+        const frame = document.createElement("iframe");
+        frame.src = url;
+        frame.width = "100%";
+        frame.height = "100%";
+        frame.style.outline = "none";
+        frame.style.border = "none";
+        showOverlay(frame);
+      }
+      
+      document.querySelector("div.copy-details svg.clickable").addEventListener("click", (event) => {
+        try {
+          const versionInfo = JSON.stringify(globalThis.rhDetails, null, 2);
+          if (versionInfo) {
+            navigator.clipboard.writeText(versionInfo);
+          }
+        } catch {
+          // Ignore
+        }
+      })
+      
+      document.querySelector("div.upload-css svg.clickable").addEventListener("click", async (event) => {
+        try {
+          const css = await uploadCSS();
+          console.log("Set Theme to: %s", toggleThemeURL(css))
+          document.querySelector("input.custom-url").value = css;
+        } catch {
+          console.warn(_);
+          // Ignore
+        }
+      })
+      
+      document.querySelector("div.browse-themes svg.clickable").addEventListener("click", async (event) => {
+        try {
+          loadURLOverlay(`https://github.com/TheRealGeoDash2019/Rammerhead-Patches/tree/main/Themes`);
+          //const README = Array.from(((new DOMParser()).parseFromString(marked.parse(await fetch(`https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/Themes/README.md`).then(t => t.text())), "text/html")).body.children);
+          //console.log(README)
+          //showOverlay(...README)
+        } catch (_) {
+          console.warn(_);
+          // Ignore
+        }
+      })
+      
+      document.querySelector(".modal-overlay .modal-close").addEventListener("click", closeOverlay)
+      
+      document.querySelector(".request-inject").addEventListener("click", (event) => {
+        injectScript();
+        document.querySelector(".request-inject").remove();
+      })
+    </script>
+  </body>
+</html>
