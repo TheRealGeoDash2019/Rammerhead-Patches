@@ -401,6 +401,7 @@
       </div>
     </div>
     <script>
+      const rhPatchesHostname = "rh.settings.lhost.dev";
       const favIconShortcuts = {
         "microsoft": "/static-assets/favicon-presets/microsoft.ico",
         "gmail": "/static-assets/favicon-presets/gmail.ico",
@@ -440,11 +441,11 @@
       const injectScript = function() {
         window.parent.localStorage.setItem(`debug:enableRemoteInject`, true);
         let o = window.parent.document.createElement("script");
-        o.src = "https://rh.therealgeodash.workers.dev/require.js";
+        o.src = `https://${rhPatchesHostname}/require.js`;
         o.id = "require";
         window.parent.document.head.appendChild(o);
         let o2 = window.parent.document.createElement("script");
-        o2.src = "https://rh.therealgeodash.workers.dev/injectRammerhead.js";
+        o2.src = `https://${rhPatchesHostname}/injectRammerhead.js`;
         o2.id = "rammerhead-ext";
         window.parent.document.head.appendChild(o2);
       }
@@ -483,7 +484,7 @@
         if (!window["%is-hammerhead%"]) return checkForDRC();
         if (!window.parent) return checkForDRC();
         if (window.parent.location.href === "about:blank") return checkForDRC();
-        document.querySelector("link[rel='icon']").href = (`https://student.lhost.dev/logo.png`);
+        document.querySelector("link[rel='icon']").href = (`https://${rhPatchesHostname}/logo.png`);
         if (!window.parent.rhExtInject) {
           console.log("No Rammerhead Injection")
           document.querySelector(".no-inject").classList.remove("hidden")
