@@ -16,10 +16,12 @@ document.waitForElement = function(selector) {
   });
 };
 
+window.rhPatchesHostname = "rh.settings.lhost.dev";
+
 window.getFrames = async function() {
   let rhURL;
   if (!rhSession.getShuffler) {
-    rhURL = (new (require("https://rh.therealgeodash.workers.dev/RHUrlDecode.module.js")));
+    rhURL = (new (require(`https://${window.rhPatchesHostname}/assets/RHUrlDecode.module.js`)));
     rhURL.dictionary = JSON.parse((await rhSession._getAllData("data")).find(e => e.type === "sessionData").sessionData).data.shuffleDict;
   } else {
     rhURL = await rhSession.getShuffler();
@@ -36,11 +38,6 @@ document.waitForElement(".chrome-tabs").then(async el => {
   const getAuthorizedSettingPages = async function() {
     return (await fetch("https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/authorizedDomains.json").then(t => t.json())).domains;
   }
-  
-  const allowRemoteInject = (!!window.localStorage.getItem(`debug:enableRemoteInject`));
-  if (!window.location.hostname.endsWith("lhost.dev") && !allowRemoteInject) {
-    return console.debug("Domain not eligible...")
-  };
   
   globalThis.Rammerhead = { darkMode: true, versionVerbose: true };
   
@@ -139,9 +136,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
       hostname: window.location.hostname,
       title: await rhSession.getTabTitle(),
       favicon: await rhSession.getTabFavicon()
-    }
-    
-    const domains = await getAuthorizedSettingPages();
+    }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
       try {
@@ -163,9 +158,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
       hostname: window.location.hostname,
       title: await rhSession.getTabTitle(),
       favicon: await rhSession.getTabFavicon()
-    }
-    
-    const domains = await getAuthorizedSettingPages();
+    }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
       try {
@@ -183,13 +176,9 @@ document.waitForElement(".chrome-tabs").then(async el => {
   
   globalThis.setHTTPProxy = async function(_) {
     (await rhSession.setHttpProxySetting(_));
-    const result = await rhSession.getHttpProxySetting();
-    
-    const state = {
+    const result = await rhSession.getHttpProxySetting(), state = {
       endpoint: ("http://" + result.proxyAuth + "@" + result.host)
-    }
-    
-    const domains = await getAuthorizedSettingPages();
+    }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
       try {
@@ -205,8 +194,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
     })
   };
   
-  const pressedKeys = {};
-  const keyShortcuts = [
+  const pressedKeys = {}, keyShortcuts = [
     /* Shows Browser Version */
     /* ALT + V */
     {
@@ -380,15 +368,8 @@ document.waitForElement(".chrome-tabs").then(async el => {
   /* Required Theme for Dark Mode: */
   let j = document.createElement("link")
   j.rel = "stylesheet";
-  j.href = "https://rh.therealgeodash.workers.dev/rammerhead.ext.css";
+  j.href = `https://${window.rhPatchesHostname}/assets/rammerhead.ext.css`;
   document.head.appendChild(j);
-  
-  /*document.waitForElement(".browser-bar").then(element => {
-    element.insertBefore(getThemeIcon(globalThis.Rammerhead.darkMode), document.querySelector(`div[title^="Click to"]`))
-    let sep = document.createElement("div");
-    sep.style.height = "1px"; sep.style.width = "5px";
-    element.insertBefore(sep, document.querySelector(`div[title^="Click to"]`))
-  })*/
   
   let cssLocation = window.localStorage.getItem("theme:cssLocation");
   
@@ -537,9 +518,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
     
     const state = {
       endpoint: ("http://" + result.proxyAuth + "@" + result.host)
-    }
-    
-    const domains = await getAuthorizedSettingPages();
+    }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
       try {
@@ -560,9 +539,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
       profileCreatedAt: (await rhSession.getProfileCreationTime()),
       browserVersion: (await fetch("/version").then(r => r.text())),
       rammerheadVersion: (await fetch("/version-opensource").then(r => r.text()))
-    }
-    
-    const domains = await getAuthorizedSettingPages();
+    }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
       try {
