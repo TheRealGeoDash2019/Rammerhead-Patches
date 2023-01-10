@@ -19,4 +19,8 @@ About Browser
 Basic Information about the Browser and the Profile
 
 # How to Access the Settings Page
-Open [the Settings Page](https://rh.settings.lhost.dev/settings) in the Rammerhead Browser
+Open the Settings Page in the Rammerhead Browser
+- Links:
+  - [Main Link](https://settings.lhost.dev/)
+  - [Development Link](https://rh.settings.lhost.dev/)
+  - [Development Link #2](https://rh.therealgeodash.workers.dev/)
