@@ -8,3 +8,4 @@ General List of Shortcuts
  | ALT + W         | Closes the Current Tab 
  | ALT + META + H  | Toggles Default Theme / Custom Theme
  | ALT + META + T  | Loads a Custom Theme from a URL
+ | ALT + V         | Toggles Version Info on New Tab
