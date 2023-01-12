@@ -20,3 +20,10 @@ Crime Scene
 ```
 https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/CrimeScene.theme.css
 ```
+
+Spotified
+---------------
+![Screenshot of Spotified Theme](https://user-images.githubusercontent.com/60702045/212178021-335fa80c-8958-48e8-a187-f6cff13c86bd.png)
+```
+https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/Spotified.theme.css
+```
