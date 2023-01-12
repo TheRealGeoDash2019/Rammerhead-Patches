@@ -11,5 +11,5 @@ Purple Overflow
 ---------------
 ![Screenshot of PurpleOverflow Theme](https://user-images.githubusercontent.com/60702045/212169549-2df62b9c-d183-495d-99f6-d526506cf16f.png)
 ```
-https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/Themes/PurpleOverflow.theme.css
+https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/PurpleOverflow.theme.css
 ```
