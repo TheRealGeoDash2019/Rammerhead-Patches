@@ -1,0 +1,13 @@
+html.custom-theme {
+  --browser-icon-color: #777;
+  --browser-accent-color-dark: #050505;
+  --browser-accent-color: #090909;
+  --browser-tab-strip: var(--browser-accent-dark);
+  --browser-tab-divider-color: #0C0C0C;
+  --browser-tab-highlight-color: #0C0C0C;
+  --browser-search-highlight-color: rgb(255 255 255 / 10%);
+  --browser-text-primary-color: #888;
+  --browser-text-secondary-color: #aaa;
+  --browser-active-icon-color: #333;
+  --browser-logo-filter: invert(1) grayscale(1) brightness(0.8);
+}
