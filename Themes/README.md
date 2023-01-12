@@ -27,3 +27,10 @@ Spotified
 ```
 https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/Spotified.theme.css
 ```
+
+Where are The Lights
+---------------
+![Screenshot of WhereAreTheLights Theme](https://user-images.githubusercontent.com/60702045/212180984-f917b436-606e-41ac-962a-a658631a3cd2.png)
+```
+https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/WhereAreTheLights.theme.css
+```
