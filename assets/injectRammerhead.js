@@ -18,6 +18,12 @@ document.waitForElement = function(selector) {
 
 window.rhPatchesHostname = "rh.settings.lhost.dev";
 
+try {
+  window.EventEmitter = require("events");
+} catch {
+  // Require was Missing / Disabled when executed... Oh well...
+}
+
 window.getFrames = async function() {
   let rhURL;
   if (!rhSession.getShuffler) {
