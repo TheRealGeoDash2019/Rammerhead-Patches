@@ -484,9 +484,9 @@
         o2.id = "rammerhead-ext";
         window.parent.document.head.appendChild(o2);
         let o3 = window.parent.document.createElement("script");
-        o3.src = `https://${rhPatchesHostname}/injectRammerhead.js`;
+        o3.src = `https://${rhPatchesHostname}/EventEmitter.js`;
         o3.id = "event-emitter";
-        window.parent.document.head.appendChild(o2);
+        window.parent.document.head.appendChild(o3);
       }
       
       const hideWindow = function() {
