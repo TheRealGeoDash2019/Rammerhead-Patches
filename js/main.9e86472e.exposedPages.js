@@ -12961,7 +12961,7 @@
               style: {
                 margin: 0
               },
-              children: "Connecting to server..."
+              children: "Initializing Rammerhead..."
             }), (0, q.jsx)("p", {
               children: l
             })]
@@ -18985,6 +18985,7 @@
         }
       }];
       
+      globalThis.ReactDiv = Lo;
       globalThis.rhPages = Po;
       globalThis.ReactParser = q;
 
