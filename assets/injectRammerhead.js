@@ -40,6 +40,7 @@ window.getFrames = async function() {
   return res;
 }
 
+
 document.waitForElement(".chrome-tabs").then(async el => {
   const getAuthorizedSettingPages = async function() {
     return (await fetch("https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/authorizedDomains.json").then(t => t.json())).domains;
@@ -452,7 +453,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
   })
   
   window.addEventListener("requestThemeConfig", async (event) => {
-    const theme =  (await rhTheming.getURL() || (window.localStorage.getItem("theme:cssLocation")? window.localStorage.getItem("theme:cssLocation") : "rh://themes/dark");
+    const theme = await rhTheming.getURL() || (window.localStorage.getItem("theme:cssLocation")? window.localStorage.getItem("theme:cssLocation") : "rh://themes/dark");
     const state = {
       active: globalThis.Rammerhead.darkMode,
       theme: (globalThis.Rammerhead.darkMode? theme : "rh://themes/light")
