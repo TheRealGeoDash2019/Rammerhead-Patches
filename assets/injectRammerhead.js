@@ -40,51 +40,6 @@ window.getFrames = async function() {
   return res;
 }
 
-globalThis.rhTheming = {
-    getEnabled: async function() {
-        const data = await rhSession._getAllData(`data`);
-        const result = data.find(e => e.type === "tabTheming");
-        if (result) {
-            return result.data.enabled;
-        } else {
-            return false;
-        }
-    },
-    getURL: async function() {
-        const data = await rhSession._getAllData(`data`);
-        const result = data.find(e => e.type === "tabTheming");
-        if (result) {
-            return result.data.url;
-        } else {
-            return null;
-        }
-    },
-    setEnabled: async function(_ = true) {
-        const temp = await rhSession._getAllData(`data`);
-        const old = temp.find(e => e.type === "tabTheming");
-        if (old) {
-            old.data.enabled = _;
-        } else {
-            temp.push({type: "tabTheming", data: {enabled: _, url: null}});
-        }
-        console.log(old)
-        console.log(temp);
-        await rhSession._putAllData(`data`, temp);
-    },
-    setURL: async function(_) {
-        const temp = await rhSession._getAllData(`data`);
-        const old = temp.find(e => e.type === "tabTheming");
-        if (old) {
-            old.data.url = _;
-        } else {
-            temp.push({type: "tabTheming", data: {enabled: true, url: _}});
-        }
-        console.log(old)
-        console.log(temp);
-        await rhSession._putAllData(`data`, temp);
-    }
-}
-
 document.waitForElement(".chrome-tabs").then(async el => {
   const getAuthorizedSettingPages = async function() {
     return (await fetch("https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/authorizedDomains.json").then(t => t.json())).domains;
