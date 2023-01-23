@@ -525,7 +525,8 @@ document.waitForElement(".chrome-tabs").then(async el => {
     const state = {
       profileCreatedAt: (await rhSession.getProfileCreationTime()),
       browserVersion: (await fetch("/version").then(r => r.text())),
-      rammerheadVersion: (await fetch("/version-opensource").then(r => r.text()))
+      rammerheadVersion: (await fetch("/version-opensource").then(r => r.text())),
+      rammerheadRegion: (await fetch("/rhdc/region").then(r => r.text()))
     }
     
     const domains = await getAuthorizedSettingPages();
@@ -592,7 +593,8 @@ document.waitForElement(".chrome-tabs").then(async el => {
     const state = {
       profileCreatedAt: (await rhSession.getProfileCreationTime()),
       browserVersion: (await fetch("/version").then(r => r.text())),
-      rammerheadVersion: (await fetch("/version-opensource").then(r => r.text()))
+      rammerheadVersion: (await fetch("/version-opensource").then(r => r.text())),
+      rammerheadRegion: (await fetch("/rhdc/region").then(r => r.text()))
     }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
