@@ -2,7 +2,7 @@ html.custom-theme {
   --browser-accent-color: #323639;
   --browser-accent-color-dark: #202124;
   --browser-active-icon-color: hsl(210deg 3% 45%);
-  --browser-ntp-color: var(--browser-accent-color-dark);
+  --browser-ntp-color: var(--browser-accent-color);
   --browser-icon-color: #ccc;
   --browser-logo-filter: invert(1);
   --browser-search-highlight-color: rgb(255 255 255 / 10%);
