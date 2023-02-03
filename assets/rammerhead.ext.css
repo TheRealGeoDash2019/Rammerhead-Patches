@@ -2,6 +2,7 @@ html.custom-theme {
   --browser-accent-color: #323639;
   --browser-accent-color-dark: #202124;
   --browser-active-icon-color: hsl(210deg 3% 45%);
+  --browser-ntp-color: var(--browser-accent-color-dark);
   --browser-icon-color: #ccc;
   --browser-logo-filter: invert(1);
   --browser-search-highlight-color: rgb(255 255 255 / 10%);
@@ -92,4 +93,9 @@ html.custom-theme .rhpages.rhsettings hr {
 html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-content {
   border-color: transparent;
   transition: border-color 0.5s;
+}
+
+html.custom-theme .rhnewtab {
+  height: 100%;
+  background-color: var(--browser-ntp-color);
 }
