@@ -42,7 +42,7 @@ html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-dividers::before, html.cu
   background: var(--browser-tab-divider-color) !important;
 }
 
-html.custom-theme .browser-tab, html.custom-theme .addressbar, html.custom-theme .chrome-tabs {
+html.custom-theme .browser-tab, html.custom-theme .addressbar, html.custom-theme .chrome-tabs, html.custom-theme .rhnewtab-oldui-container input {
   background: var(--browser-accent-color-dark) !important;
 }
 
@@ -60,7 +60,7 @@ html.custom-theme .addressbar-menu-item[style="background-color: rgba(0, 0, 0, 0
   color: var(--browser-text-primary-color);
 }
 
-html.custom-theme .browser-bar, html.custom-theme .chrome-tabs-optional-shadow-below-bottom-bar, html.custom-theme .browser-bar-btn-enabled:hover, html.custom-theme .rhnewtab-oldui-btn-container span:hover, html.custom-theme .rhnewtab-oldui-container input, html.custom-theme .chrome-tabs .chrome-tabs-bottom-bar, html.custom-theme .browser, html.custom-theme .addressbar-btn:hover {
+html.custom-theme .browser-bar, html.custom-theme .chrome-tabs-optional-shadow-below-bottom-bar, html.custom-theme .browser-bar-btn-enabled:hover, html.custom-theme .rhnewtab-oldui-btn-container span:hover, html.custom-theme .chrome-tabs .chrome-tabs-bottom-bar, html.custom-theme .browser, html.custom-theme .addressbar-btn:hover {
   background: var(--browser-accent-color) !important;
 }
 
