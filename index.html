@@ -613,7 +613,10 @@
         if (!window["%is-hammerhead%"]) return;
         if (!window.parent) return;
         try {
-          if (window.parent.toggleTheme) {
+          if (window.parent.rhTheming) {
+            window.parent.rhTheming.setEnabled(_);
+            return _;
+          } else if (window.parent.toggleTheme) {
             window.parent.toggleTheme(_);
             return _;
           }
@@ -626,7 +629,11 @@
         if (!window["%is-hammerhead%"]) return;
         if (!window.parent) return;
         try {
-          if (window.parent.setThemeURL) {
+          if (window.parent.rhTheming) {
+            themeSettingsPage(_);
+            window.parent.rhTheming.setURL(_);
+            return _;
+          } else if (window.parent.setThemeURL) {
             themeSettingsPage(_);
             window.parent.setThemeURL(_);
             return _;
