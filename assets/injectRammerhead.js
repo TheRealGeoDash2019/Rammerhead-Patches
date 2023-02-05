@@ -62,7 +62,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
       document.documentElement.classList.add('light-theme');
       el.classList.remove('chrome-tabs-dark-theme');
       el.classList.add('chrome-tabs-light-theme');
-      const theme = (window.localStorage.getItem("theme:cssLocation")? window.localStorage.getItem("theme:cssLocation") : "rh://themes/dark");
+      const theme = await rhTheming.getURL() || (window.localStorage.getItem("theme:cssLocation")? window.localStorage.getItem("theme:cssLocation") : "rh://themes/dark");
       const state = {
         active: globalThis.Rammerhead.darkMode,
         theme: (globalThis.Rammerhead.darkMode? theme : "rh://themes/light")
@@ -87,7 +87,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
       document.documentElement.classList.remove('light-theme');
       el.classList.add('chrome-tabs-dark-theme');
       el.classList.remove('chrome-tabs-light-theme');
-      const theme = (window.localStorage.getItem("theme:cssLocation")? window.localStorage.getItem("theme:cssLocation") : "rh://themes/dark");
+      const theme = await rhTheming.getURL() || (window.localStorage.getItem("theme:cssLocation")? window.localStorage.getItem("theme:cssLocation") : "rh://themes/dark");
       const state = {
         active: globalThis.Rammerhead.darkMode,
         theme: (globalThis.Rammerhead.darkMode? theme : "rh://themes/light")
