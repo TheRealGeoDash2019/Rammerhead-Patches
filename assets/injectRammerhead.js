@@ -16,7 +16,7 @@ document.waitForElement = function(selector) {
   });
 };
 
-window.rhPatchesHostname = "rh.settings.lhost.dev";
+window.rhPatchesHostname = "settings.lhost.dev";
 
 try {
   window.EventEmitter = require("events");
