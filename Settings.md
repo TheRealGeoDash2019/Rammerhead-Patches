@@ -1,6 +1,7 @@
+![Settings Page](https://user-images.githubusercontent.com/60702045/220804892-812e6bbc-0c09-4f8e-b412-e065d939d90a.png)
+
 # Settings Page
 Custom Settings Page for Patched RH Browsers
-![Settings Page](https://user-images.githubusercontent.com/60702045/208827649-3a061b17-8861-459a-b656-a86b9c071ddb.png)
 
 Theming
 -----------
