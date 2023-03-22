@@ -359,6 +359,15 @@ document.waitForElement(".chrome-tabs").then(async el => {
       exec: function(event) {
         chromeTabs.removeTab(chromeTabs.activeTabEl)
       }
+    },
+    /* Open DevTools */
+    /* CTRL + ALT + H */
+    {
+      keys: [16, 17, 73],
+      executed: false,
+      exec: function(event) {
+        console.debug("Launching DevTools");
+      }
     }
   ];
   
