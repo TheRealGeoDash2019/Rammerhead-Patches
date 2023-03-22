@@ -361,7 +361,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
       }
     },
     /* Open DevTools */
-    /* CTRL + ALT + H */
+    /* CTRL + SHIFT + I (overridden) */
     {
       keys: [16, 17, 73],
       executed: false,
