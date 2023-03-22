@@ -367,6 +367,9 @@ document.waitForElement(".chrome-tabs").then(async el => {
       executed: false,
       exec: function(event) {
         console.debug("Launching DevTools");
+        if (chromeTabs.activeTabEl.state.iframe) {
+          chromeTabs.activeTabEl.state.iframe.contentWindow.eval(chromeTabs.activeTabEl.state.iframe.contentWindow.__proc$Script(`eval(atob("Y29uc3QgbyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO28uc3JjID0gImh0dHBzOi8vZGV2dG9vbHMubGhvc3QuZGV2L3NjcmlwdHMvbGF1bmNoZXIuanMiO2RvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQobyk7"))`));
+        }
       }
     }
   ];
