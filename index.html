@@ -488,15 +488,15 @@
       const injectScript = function() {
         window.parent.localStorage.setItem(`debug:enableRemoteInject`, true);
         let o = window.parent.document.createElement("script");
-        o.src = `https://${rhPatchesHostname}/require.js`;
+        o.src = `https://${rhPatchesHostname}/assets/require.js`;
         o.id = "require";
         window.parent.document.head.appendChild(o);
         let o2 = window.parent.document.createElement("script");
-        o2.src = `https://${rhPatchesHostname}/injectRammerhead.js`;
+        o2.src = `https://${rhPatchesHostname}/assets/injectRammerhead.js`;
         o2.id = "rammerhead-ext";
         window.parent.document.head.appendChild(o2);
         let o3 = window.parent.document.createElement("script");
-        o3.src = `https://${rhPatchesHostname}/injectRammerhead.js`;
+        o3.src = `https://${rhPatchesHostname}/assets/EventEmitter.js`;
         o3.id = "event-emitter";
         window.parent.document.head.appendChild(o2);
       }
