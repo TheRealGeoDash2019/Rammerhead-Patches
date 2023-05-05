@@ -8,7 +8,7 @@ javascript:(() => {window.localStorage.setItem(`debug:enableRemoteInject`,true);
 ```
 or Open this URL in any Rammerhead Browser:
 ```link
-https://rh.settings.lhost.dev
+https://settings.lhost.dev
 ```
 # Features:
 - [Basic Shortcuts](/../mainShortcuts.md)
