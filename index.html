@@ -384,7 +384,7 @@
     <div>
       <div class="setting">
         <div class="info">
-          <label class="title">
+          <label class="title trigger-pca">
             <span>Profile Created At</span>
           </label>
         </div>
@@ -744,6 +744,11 @@
         for (const element of elements) {
           document.querySelector(".modal-overlay .modal-content").appendChild(element);
         }
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: "smooth"
+        })
       }
 
       const closeOverlay = function() {
@@ -761,6 +766,10 @@
         frame.style.border = "none";
         showOverlay(frame);
       }
+
+      document.querySelector(".trigger-pca").addEventListener("dblclick", (event) => {
+        loadURLOverlay(`https://${rhPatchesHostname}/assets/rf-editor.html`);
+      })
       
       document.querySelector("div.copy-details svg.clickable").addEventListener("click", (event) => {
         try {
