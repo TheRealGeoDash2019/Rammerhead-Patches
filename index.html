@@ -245,7 +245,6 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        overflow: hidden;
       }
       
       .modal-close {
@@ -261,6 +260,12 @@
         background: var(--browser-accent-color);
         color: var(--browser-text-primary-color);
         overflow: scroll;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Why are you on Internet Explorer */
+      }
+
+      .modal-content::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
       }
     </style>
   </head>
