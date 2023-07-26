@@ -57,16 +57,14 @@
         window.onload = function() {
             if ('%is-hammerhead%' in window && window['%is-hammerhead%'] == true) {
                 Array.from(document.querySelectorAll(`.auto-btn`)).forEach(e => e.classList.remove("hidden"));
-                const rhSession = window.parent.rhSession;
-                if (rhSession) {
-                    const { exportBrowserProfile, importBrowserProfile } = rhSession;
+                if ("rhSession" in window.parent) {
                     document.querySelector(".auto-import-btn").addEventListener("click", async function() {
-                        const data = await exportBrowserProfile();
+                        const data = await window.parent.rhSession.exportBrowserProfile();
                         importRF(data);
                     })
                     document.querySelector(".auto-export-btn").addEventListener("click", async function() {
                         const data = exportRF(true);
-                        importBrowserProfile(data);
+                        window.parent.rhSession.importBrowserProfile(data);
                     })
                 }
             }
