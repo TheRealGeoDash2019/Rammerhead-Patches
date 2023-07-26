@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rammerhead Session File Editor</title>
+    <style>
+        html, body {
+            padding: 0px;
+            margin: 0px;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: #202020;
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .save {
+            width: 100vw;
+        }
+
+        .save-editor {
+            flex: 1 1 auto;
+        }
+
+        .hidden {
+            display: none !important;
+            visibility: hidden !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="save">
+        <button class="manual-btn import-btn" onclick="importRF();">Import Rammerhead File</button>
+        <button class="manual-btn export-btn" onclick="exportRF();">Export Rammerhead File</button>
+        <button class="auto-btn auto-import-btn hidden">Auto Import</button>
+        <button class="auto-btn auto-export-btn hidden">Auto Export</button>
+    </div>
+    <div class="save-editor"></div>
+    <script type="module">
+        import * as monaco from 'https://esm.sh/@peterschussheim/monaco-editor@0.15.61'
+
+        globalThis.Monaco = monaco.default;
+
+        globalThis.editor = monaco.default.editor.create(document.querySelector(".save-editor"), {
+            language: "json",
+            theme: "vs-dark"
+        })
+    </script>
+    <script>
+        window.onload = function() {
+            if ('%is-hammerhead%' in window && window['%is-hammerhead%'] == true) {
+                Array.from(document.querySelectorAll(`.auto-btn`)).forEach(e => e.classList.remove("hidden"));
+                const rhSession = window.parent.rhSession;
+                if (rhSession) {
+                    const { exportBrowserProfile, importBrowserProfile } = rhSession;
+                    document.querySelector("auto-import-btn").addEventListener("click", async function() {
+                        const data = await exportBrowserProfile();
+                        importRF(data);
+                    })
+                    document.querySelector("auto-export-btn").addEventListener("click", async function() {
+                        const data = exportRF(true);
+                        importBrowserProfile(data);
+                    })
+                }
+            }
+        }
+
+        const importRF = function(dataOverride = null) {
+            try {
+                const whitelistedTypes = ["Uint8Array", "ArrayBuffer"]
+                if (dataOverride !== null && dataOverride.constructor && whitelistedTypes.includes(dataOverride.constructor.name)) {
+                    const fileData = Array.from(new Uint8Array(dataOverride)).map(e => (e ^= 69)).map(e => String.fromCharCode(e)).join("");
+                    const fileJSON = JSON.parse(fileData);
+                    editor.setValue(JSON.stringify(fileJSON, null, "    "))
+                } else {
+                    return showOpenFilePicker({
+                        multiple: false,
+                        accept: ".rf"
+                    }).then(async files => {
+                        if (files && files[0]) {
+                            const fileInfo = await files[0].getFile();
+                            const fileContent = await fileInfo.arrayBuffer();
+                            const fileData = Array.from(new Uint8Array(fileContent)).map(e => (e ^= 69)).map(e => String.fromCharCode(e)).join("");
+                            const fileJSON = JSON.parse(fileData);
+                            editor.setValue(JSON.stringify(fileJSON, null, "    "))
+                        }
+                    }).catch(err => {
+                        console.error("Something Broke")
+                    })
+                }
+            } catch {
+                console.warn("Missing APIs")
+            }
+        }
+
+        const exportRF = function(noDownload = false) {
+            try {
+                if (noDownload === true) {
+                    const editorData = JSON.parse(editor.getValue());
+                    const encodedData = ((new TextEncoder).encode(JSON.stringify(editorData))).map(e => e ^= 69);
+                    return encodedData; 
+                } else {
+                    const editorData = JSON.parse(editor.getValue());
+                    const encodedData = (Array.from((new TextEncoder).encode(JSON.stringify(editorData))).map(e => e ^= 69).map(e => String.fromCharCode(e)).join(""));
+                    const blobUri = URL.createObjectURL(new Blob([encodedData]));
+                    let x = document.createElement("a");
+                    x.href = blobUri;
+                    x.download = "profile.rf";
+                    x.click();
+                    setTimeout(() => {
+                        URL.revokeObjectURL(blobUri);
+                    }, 10);
+                }
+            } catch {
+                console.warn("Something Broke")
+            }
+        }
+    </script>
+</body>
+</html>
