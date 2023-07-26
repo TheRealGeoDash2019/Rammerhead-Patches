@@ -60,11 +60,11 @@
                 const rhSession = window.parent.rhSession;
                 if (rhSession) {
                     const { exportBrowserProfile, importBrowserProfile } = rhSession;
-                    document.querySelector("auto-import-btn").addEventListener("click", async function() {
+                    document.querySelector(".auto-import-btn").addEventListener("click", async function() {
                         const data = await exportBrowserProfile();
                         importRF(data);
                     })
-                    document.querySelector("auto-export-btn").addEventListener("click", async function() {
+                    document.querySelector(".auto-export-btn").addEventListener("click", async function() {
                         const data = exportRF(true);
                         importBrowserProfile(data);
                     })
