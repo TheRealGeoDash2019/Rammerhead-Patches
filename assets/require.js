@@ -1,4 +1,4 @@
-class Module {
+class RequireModule {
     constructor(exports) {
         this.id = (parseInt("0x" + Array.from(crypto.getRandomValues(new Uint8Array(4))).map(e => e.toString("16").padStart(2, "0").toUpperCase()).join("")));
         this.exports = (exports? exports : null);
@@ -152,7 +152,7 @@ const require = (name, options = {}) => {
       let relativeFile = (root + name).replaceAll("//", "/");
       let relativePath = relativeFile.split("/"); relativePath.pop(); (relativePath = (relativePath.join("/") + "/").replaceAll("//", "/"));
       if (name) {
-        const module = new Module({});
+        const module = new RequireModule({});
         try {
           wrap((getPackageFile(options.packageName, packageVersion, ((relativeFile.endsWith(".js") || relativeFile.endsWith(".json") || relativeFile.endsWith(".cjs"))? (relativeFile) : (relativeFile + ".js")))), {
             globalThis: globalThis,
@@ -185,7 +185,7 @@ const require = (name, options = {}) => {
   } else if (!options.origin && !options.packageName && (name.startsWith(".") || name.startsWith("http")) && !options.version) {
     let fileName = (name.split("/")[name.split("/").length - 1].includes(".")? name : (name + ".js"));
     try {
-      const module = new Module({});
+      const module = new RequireModule({});
       let relativeFile = new URL(name, document.location.href).href;
       let relativePath = relativeFile.split("/"); relativePath.pop(); (relativePath = (relativePath.join("/") + "/"));
       
@@ -212,7 +212,7 @@ const require = (name, options = {}) => {
     }
   } else if (options.origin && !options.packageName && (name.startsWith(".") || name.startsWith("http")) && !options.version && options.nonNPM) {
     try {
-      const module = new Module({});
+      const module = new RequireModule({});
       let root = options.origin;
       root = ((root.endsWith("/"))? root : (root + "/"));
       let relativeFile = new URL(name, root).href;
@@ -246,7 +246,7 @@ const require = (name, options = {}) => {
         let package = getPackageJSON(name, (packageVersion? packageVersion : null));
         let mainFile = getPackageRoot(package)
         if (mainFile) {
-          const module = new Module({});
+          const module = new RequireModule({});
       
           let o = (mainFile.split("/")); o.pop(); (o = (o.join("/") + "/").replaceAll("//", "/"));
       
@@ -281,7 +281,7 @@ const require = (name, options = {}) => {
             let package = getPackageJSON(name, (options._package.dependencies[name]? options._package.dependencies[name] : null));
             let mainFile = getPackageRoot(package);
             if (mainFile) {
-              const module = new Module({});
+              const module = new RequireModule({});
               
               let o = (mainFile.split("/")); o.pop(); (o = (o.join("/") + "/").replaceAll("//", "/"));
               
@@ -318,7 +318,7 @@ const require = (name, options = {}) => {
             let package = getPackageJSON(name, (options._package.devDependencies[name]? options._package.devDependencies[name] : null));
             let mainFile = getPackageRoot(package);
             if (mainFile) {
-              const module = new Module({});
+              const module = new RequireModule({});
                 
               let o = (mainFile.split("/")); o.pop(); (o = (o.join("/") + "/").replaceAll("//", "/"));
                 
@@ -391,7 +391,7 @@ require.eval = function(_, options = {}) {
   };
   
   try {
-    const module = new Module({});
+    const module = new RequireModule({});
     
     wrap(_, {
       globalThis: globalThis,
