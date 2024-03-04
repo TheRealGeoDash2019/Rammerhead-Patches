@@ -28,8 +28,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Write Commit Information
-        run: echo "${GITHUB_SHA::7}" > ./commit.txt
+      - name: Write Commit Info
+        run: echo "${GITHUB_SHA}" > ./commit.txt
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
