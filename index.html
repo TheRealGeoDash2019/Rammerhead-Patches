@@ -8,7 +8,7 @@
     <link rel="icon" class="settings-icon">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- Arc.io Service Worker -->
-    <script async src="https://arc.io/widget.min.js#pt9nfmXm"></script>
+    <!-- <script async src="https://arc.io/widget.min.js#pt9nfmXm"></script> -->
     <style>
       @import url("/assets/GoogleSans.css");
       
@@ -468,6 +468,7 @@
 
       const burstSandbox = function() {
         // Rammerhead Clients usually have %hammerhead%
+        console.debug("Bursting Rammerhead Sandbox");
         return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; return Func(`return window.top`)();")(); 
       }
 
@@ -475,7 +476,6 @@
 
       try {
         windowethToppeth = burstSandbox();
-        console.log(windowethToppeth);
       } catch {
         if (window["%hammerhead%"]) console.warn("Rammerhead Sandbox Breakout failed");
       }
