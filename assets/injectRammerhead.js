@@ -41,7 +41,7 @@ window.getFrames = async function() {
 }
 
 
-document.waitForElement(".chrome-tabs").then(async el => {
+document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
   const getAuthorizedSettingPages = async function() {
     return (await fetch("https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/authorizedDomains.json").then(t => t.json())).domains;
   }
@@ -49,7 +49,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
   globalThis.Rammerhead = { darkMode: true, versionVerbose: true };
   
   globalThis.toggleVersionVerbose = function(showVersion = false) {
-      document.querySelectorAll(".rhnewtab-version-container").forEach(e => {
+      document.querySelectorAll(`[class^="rhnewtab-version-container"]`).forEach(e => {
         e.style.display = ((!!showVersion)? "" : "none");
       })
   }
@@ -326,7 +326,7 @@ document.waitForElement(".chrome-tabs").then(async el => {
       executed: false,
       exec: function(event) {
         try {
-          let tab = document.querySelector("div.browser-tab-content iframe[style='display: block;']");
+          let tab = document.querySelector(`div[class^="browser-tab-content"] iframe[style='display: block;']`);
           if (tab) {
             console.log(tab);
             tab.contentWindow.location.reload();
@@ -420,15 +420,15 @@ document.waitForElement(".chrome-tabs").then(async el => {
     });
   })
   window.addEventListener("beforeprint", () => {
-    document.querySelector("div.chrome-tabs").style.display = "none";
-    document.querySelector("div.browser-bar").style.display = "none";
+    document.querySelector(`div[class^="chrome-tabs"]`).style.display = "none";
+    document.querySelector(`div[class^="browser-bar"]`).style.display = "none";
   })
   window.addEventListener("afterprint", () => {
     Object.keys(pressedKeys).map(e => {
       (pressedKeys[e]["pressed"] = false)
     });
-    document.querySelector("div.chrome-tabs").style.display = "";
-    document.querySelector("div.browser-bar").style.display = "";
+    document.querySelector(`div[class^="chrome-tabs"]`).style.display = "";
+    document.querySelector(`div[class^="browser-bar"]`).style.display = "";
   })
   
   /* Required Theme for Dark Mode: */
