@@ -13,58 +13,58 @@ html.custom-theme {
   --browser-text-secondary-color: #ddd;
 }
 
-div.rhnewtab-header-ad {
+div[class^="rhnewtab-header-ad"] {
   display: none !important;
 }
 
-html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
+html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-background > svg .chrome-tab-geometry {
   fill: var(--browser-tab-highlight-color) !important;
 }
 
-html.custom-theme .chrome-tabs .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
+html.custom-theme [class^="chrome-tabs"] .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
   fill: var(--browser-accent-color) !important;
 }
 
-html.custom-theme .rhnewtab a:hover {
+html.custom-theme div[class^="browser-tab"] [class^="rhpages"] a:hover {
   filter: none !important;
   color: var(--browser-text-secondary-color);
 }
 
-html.custom-theme .chrome-tabs .chrome-tab[active] .chrome-tab-title {
+html.custom-theme [class^="chrome-tabs"] .chrome-tab[active] .chrome-tab-title {
   color: var(--browser-text-secondary-color) !important;
 }
 
-html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-title {
+html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-title {
   color: var(--browser-text-primary-color);
 }
 
-html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-dividers::before, html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-dividers::after {
+html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-dividers::before, html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-dividers::after {
   background: var(--browser-tab-divider-color) !important;
 }
 
-html.custom-theme .browser-tab, html.custom-theme .addressbar, html.custom-theme .chrome-tabs, html.custom-theme .rhnewtab-oldui-container input {
+html.custom-theme [class^="browser-tab"], html.custom-theme [class^="addressbar"], html.custom-theme [class^="chrome-tabs"], html.custom-theme [class^="rhnewtab-oldui-container"] input {
   background: var(--browser-accent-color-dark) !important;
 }
 
-html.custom-theme .addressbar-menu-item, html.custom-theme .addressbar-menu {
+html.custom-theme [class^="addressbar-menu-item-"], html.custom-theme [class^="addressbar-menu"] {
   background: var(--browser-accent-color-dark) !important;
   color: var(--browser-text-secondary-color);
 }
 
-html.custom-theme .addressbar-menu input {
+html.custom-theme [class^="addressbar-menu"] input {
   color: var(--browser-text-secondary-color);
 }
 
-html.custom-theme .addressbar-menu-item[style="background-color: rgba(0, 0, 0, 0.1);"] {
+html.custom-theme [class^="addressbar-menu-item-"][style="background-color: rgba(0, 0, 0, 0.1);"] {
   background: var(--browser-search-highlight-color) !important;
   color: var(--browser-text-primary-color);
 }
 
-html.custom-theme .browser-bar, html.custom-theme .chrome-tabs-optional-shadow-below-bottom-bar, html.custom-theme .browser-bar-btn-enabled:hover, html.custom-theme .rhnewtab-oldui-btn-container span:hover, html.custom-theme .chrome-tabs .chrome-tabs-bottom-bar, html.custom-theme .browser, html.custom-theme .addressbar-btn:hover {
+html.custom-theme [class^="browser-bar"], html.custom-theme [class^="chrome-tabs-optional-shadow-below-bottom-bar"], html.custom-theme [class^="browser-bar-btn"][class$="enabled"]:hover, html.custom-theme [class^="rhnewtab-oldui-btn-container"] span:hover, html.custom-theme [class^="chrome-tabs"] [class^="chrome-tabs-bottom-bar"], html.custom-theme #root [class^="browser"], html.custom-theme [class^="addressbar-btn"]:hover {
   background: var(--browser-accent-color) !important;
 }
 
-html.custom-theme .browser-bar {
+html.custom-theme [class^="browser-bar"] {
   border-bottom: 1px solid var(--browser-accent-color-dark);
 }
 
@@ -76,26 +76,26 @@ html.custom-theme, html.custom-theme .rhnewtab-oldui-container input {
   color: var(--browser-text-secondary-color);
 }
 
-html.custom-theme .browser-bar-btn-disabled {
+html.custom-theme [class^="browser-bar-btn"][class$="disabled"] {
   fill: var(--browser-active-icon-color);
   stroke: var(--browser-active-icon-color);
 }
 
-html.custom-theme .rhnewtab-header img, html.custom-theme .rhnewtab a {
+html.custom-theme [class^="rhnewtab-header"] img, html.custom-theme div[class^="browser-tab"] [class^="rhpages"] a {
   filter: var(--browser-logo-filter);
 }
 
-html.custom-theme .rhpages.rhsettings hr {
+html.custom-theme div[class^="browser-tab"] [class^="rhpages"] hr {
   border-color: var(--browser-accent-color);
   border-style: solid;
 }
 
-html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-content {
+html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-content {
   border-color: transparent;
   transition: border-color 0.5s;
 }
 
-html.custom-theme .rhnewtab {
+html.custom-theme div[class^="browser-tab"] [class^="rhpages"] {
   height: 100%;
   background-color: var(--browser-ntp-color);
 }
