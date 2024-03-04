@@ -476,8 +476,7 @@
       try {
         windowethToppeth = burstSandbox();
       } catch {
-        if (!window["%hammerhead%"]) return;
-        console.warn("Rammerhead Sandbox Breakout failed");
+        if (window["%hammerhead%"]) console.warn("Rammerhead Sandbox Breakout failed");
       }
       
       const uploadCSS = async function() {
