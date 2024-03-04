@@ -16,11 +16,6 @@ document.waitForElement = function(selector) {
   });
 };
 
-const burstSandbox = function() {
-  // Rammerhead Clients usually have %hammerhead%
-  return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; return Func(`return window.top`)();")();
-}
-
 window.rhPatchesHostname = "settings.lhost.dev";
 
 try {
@@ -50,10 +45,6 @@ document.waitForElement(".chrome-tabs").then(async el => {
   const getAuthorizedSettingPages = async function() {
     return (await fetch("https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/authorizedDomains.json").then(t => t.json())).domains;
   }
-
-  // BETA... 
-  const topWindow = burstSandbox();
-  console.log(topWindow);
   
   globalThis.Rammerhead = { darkMode: true, versionVerbose: true };
   

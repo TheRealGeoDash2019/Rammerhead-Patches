@@ -465,6 +465,20 @@
         "word": "/static-assets/favicon-presets/word.ico",
         "outlook": "/static-assets/favicon-presets/outlook.ico"
       }
+
+      const burstSandbox = function() {
+        // Rammerhead Clients usually have %hammerhead%
+        return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; return Func(`return window.top`)();")(); 
+      }
+
+      let windowethToppeth; 
+
+      try {
+        windowethToppeth = burstSandbox();
+      } catch {
+        if (!window["%hammerhead%"]) return;
+        console.warn("Rammerhead Sandbox Breakout failed");
+      }
       
       const uploadCSS = async function() {
         const res = await showOpenFilePicker({
@@ -492,19 +506,19 @@
       }
     
       const injectScript = function() {
-        window.parent.localStorage.setItem(`debug:enableRemoteInject`, true);
-        let o = window.parent.document.createElement("script");
+        windowethToppeth.localStorage.setItem(`debug:enableRemoteInject`, true);
+        let o = windowethToppeth.document.createElement("script");
         o.src = `https://${rhPatchesHostname}/assets/require.js`;
         o.id = "require";
-        window.parent.document.head.appendChild(o);
-        let o2 = window.parent.document.createElement("script");
+        windowethToppeth.document.head.appendChild(o);
+        let o2 = windowethToppeth.document.createElement("script");
         o2.src = `https://${rhPatchesHostname}/assets/injectRammerhead.js`;
         o2.id = "rammerhead-ext";
-        window.parent.document.head.appendChild(o2);
-        let o3 = window.parent.document.createElement("script");
+        windowethToppeth.document.head.appendChild(o2);
+        let o3 = windowethToppeth.document.createElement("script");
         o3.src = `https://${rhPatchesHostname}/assets/EventEmitter.js`;
         o3.id = "event-emitter";
-        window.parent.document.head.appendChild(o2);
+        windowethToppeth.document.head.appendChild(o2);
       }
       
       const hideWindow = function() {
@@ -539,16 +553,16 @@
     
       window.addEventListener("load", () => {
         if (!window["%is-hammerhead%"]) return checkForDRC();
-        if (!window.parent) return checkForDRC();
-        if (window.parent.location.href === "about:blank") return checkForDRC();
+        if (!windowethToppeth) return checkForDRC();
+        if (windowethToppeth.location.href === "about:blank") return checkForDRC();
         document.querySelector("link[rel='icon']").href = (`https://${rhPatchesHostname}/logo.png`);
-        if (!window.parent.rhExtInject) {
+        if (!windowethToppeth.rhExtInject) {
           console.log("No Rammerhead Injection")
           document.querySelector(".no-inject").classList.remove("hidden")
         } else {
-          window.parent.dispatchEvent(new CustomEvent("requestThemeConfig"))
-          window.parent.dispatchEvent(new CustomEvent("requestTabConfig"))
-          window.parent.dispatchEvent(new CustomEvent("requestBrowserInfo"))
+          windowethToppeth.dispatchEvent(new CustomEvent("requestThemeConfig"))
+          windowethToppeth.dispatchEvent(new CustomEvent("requestTabConfig"))
+          windowethToppeth.dispatchEvent(new CustomEvent("requestBrowserInfo"))
         }
       })
       
@@ -619,13 +633,13 @@
     
       const toggleTheme = function(_) {
         if (!window["%is-hammerhead%"]) return;
-        if (!window.parent) return;
+        if (!windowethToppeth) return;
         try {
-          if (window.parent.rhTheming) {
-            window.parent.rhTheming.setEnabled(_);
+          if (windowethToppeth.rhTheming) {
+            windowethToppeth.rhTheming.setEnabled(_);
             return _;
-          } else if (window.parent.toggleTheme) {
-            window.parent.toggleTheme(_);
+          } else if (windowethToppeth.toggleTheme) {
+            windowethToppeth.toggleTheme(_);
             return _;
           }
         } catch (_) {
@@ -635,15 +649,15 @@
       
       const toggleThemeURL = function(_) {
         if (!window["%is-hammerhead%"]) return;
-        if (!window.parent) return;
+        if (!windowethToppeth) return;
         try {
-          if (window.parent.rhTheming) {
+          if (windowethToppeth.rhTheming) {
             themeSettingsPage(_);
-            window.parent.rhTheming.setURL(_);
+            windowethToppeth.rhTheming.setURL(_);
             return _;
-          } else if (window.parent.setThemeURL) {
+          } else if (windowethToppeth.setThemeURL) {
             themeSettingsPage(_);
-            window.parent.setThemeURL(_);
+            windowethToppeth.setThemeURL(_);
             return _;
           }
         } catch (_) {
@@ -653,10 +667,10 @@
       
       const toggleBrowserTitle = function(_) {
         if (!window["%is-hammerhead%"]) return;
-        if (!window.parent) return;
+        if (!windowethToppeth) return;
         try {
-          if (window.parent.setBrowserTitle) {
-            window.parent.setBrowserTitle(_);
+          if (windowethToppeth.setBrowserTitle) {
+            windowethToppeth.setBrowserTitle(_);
             return _;
           }
         } catch (_) {
@@ -674,10 +688,10 @@
       
       const toggleBrowserFavIcon = function(_) {
         if (!window["%is-hammerhead%"]) return;
-        if (!window.parent) return;
+        if (!windowethToppeth) return;
         try {
-          if (window.parent.setBrowserFavIcon) {
-            window.parent.setBrowserFavIcon(_);
+          if (windowethToppeth.setBrowserFavIcon) {
+            windowethToppeth.setBrowserFavIcon(_);
             return _;
           }
         } catch (_) {
@@ -687,10 +701,10 @@
       
       const toggleHTTPProxy = function(_) {
         if (!window["%is-hammerhead%"]) return;
-        if (!window.parent) return;
+        if (!windowethToppeth) return;
         try {
-          if (window.parent.setHTTPProxy) {
-            window.parent.setHTTPProxy(_);
+          if (windowethToppeth.setHTTPProxy) {
+            windowethToppeth.setHTTPProxy(_);
             return _;
           }
         } catch (_) {
