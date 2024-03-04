@@ -555,6 +555,7 @@
         if (!window["%is-hammerhead%"]) return checkForDRC();
         if (!windowethToppeth) return checkForDRC();
         if (windowethToppeth.location.href === "about:blank") return checkForDRC();
+        console.log(windowethToppeth);
         document.querySelector("link[rel='icon']").href = (`https://${rhPatchesHostname}/logo.png`);
         if (!windowethToppeth.rhExtInject) {
           console.log("No Rammerhead Injection")
