@@ -1,4 +1,6 @@
 # Rammerhead-Patches Site
+[![Deploy GitHub Pages](https://github.com/TheRealGeoDash2019/Rammerhead-Patches/actions/workflows/jekyll-gh-pages.yml/badge.svg?branch=site)](https://github.com/TheRealGeoDash2019/Rammerhead-Patches/actions/workflows/jekyll-gh-pages.yml)
+
 My Testing of Rammerhead Theming and Shortcuts. I guess...
 
 # Bookmarklet:
