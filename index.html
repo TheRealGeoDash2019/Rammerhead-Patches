@@ -571,6 +571,10 @@
       }
     
       window.addEventListener("load", () => {
+        // Write the Commit Info
+        const patcherVersion = getPatcherVersion().slice(0, 7);
+        document.querySelector(".patcher-commit span").innerText = patcherVersion;
+        // Continue with Checking for Rammerhead
         if (!window["%is-hammerhead%"]) return checkForDRC();
         if (!windowethToppeth) return checkForDRC();
         if (windowethToppeth.location.href === "about:blank") return checkForDRC();
