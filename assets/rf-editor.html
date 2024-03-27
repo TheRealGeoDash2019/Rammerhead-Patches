@@ -54,17 +54,23 @@
         })
     </script>
     <script>
+        const burstSandbox = function() {
+            // Rammerhead Clients usually have %hammerhead%
+            console.debug("Bursting Rammerhead Sandbox");
+            return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; return Func(`return window.top`)();")(); 
+        };
         window.onload = function() {
             if ('%is-hammerhead%' in window && window['%is-hammerhead%'] == true) {
                 Array.from(document.querySelectorAll(`.auto-btn`)).forEach(e => e.classList.remove("hidden"));
-                if ("rhSession" in window.parent) {
+                const topWindow = burstSandbox();
+                if ("rhSession" in topWindow) {
                     document.querySelector(".auto-import-btn").addEventListener("click", async function() {
-                        const data = await window.parent.rhSession.exportBrowserProfile();
+                        const data = await topWindow.rhSession.exportBrowserProfile();
                         importRF(data);
                     })
                     document.querySelector(".auto-export-btn").addEventListener("click", async function() {
                         const data = exportRF(true);
-                        window.parent.rhSession.importBrowserProfile(data);
+                        topWindow.rhSession.importBrowserProfile(data);
                     })
                 }
             }
