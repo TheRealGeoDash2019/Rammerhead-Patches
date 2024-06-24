@@ -325,7 +325,7 @@
           </p>
         </div>
         <div class="toggle">
-          <md-switch selected class="switch"></md-switch>
+          <md-switch selected class="custom-toggle"></md-switch>
         </div>
       </div>
       <div class="setting">
@@ -749,9 +749,9 @@
         }
       }
       
-      document.querySelector("input.custom-toggle").addEventListener("change", ({target}) => {
+      document.querySelector("md-switch.custom-toggle").addEventListener("change", ({target}) => {
         try {
-          toggleTheme(!!target.checked)
+          toggleTheme(!!target.selected)
         } catch (_) {
           console.warn(_);
         }
