@@ -786,6 +786,27 @@
         };
         r.click();
       }
+
+      const importProfile = function(dataOverride = null) {
+        return new Promise((resv, rej) => {
+          try {
+            return showOpenFilePicker({
+              multiple: false,
+              accept: ".rf"
+            }).then(async files => {
+              if (files && files[0]) {
+                const fileInfo = await files[0].getFile();
+                const fileContent = await fileInfo.arrayBuffer();
+                return resv(new Uint8Array(fileContent));
+              }
+            }).catch(err => {
+              return rej("Something Broke")
+            })
+          } catch {
+            return rej("Missing APIs")
+          }
+        });
+      }
       
       document.querySelector("input.custom-toggle").addEventListener("change", ({target}) => {
         try {
