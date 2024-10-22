@@ -279,7 +279,7 @@
       }
 
       .btn {
-        transition: filter 0.3s;
+        transition: filter 0.3s, background 0.3s;
         border-radius: 8px;
         border: solid 0.5px var(--browser-accent-color-dark);
         color: var(--browser-text-primary-color);
@@ -291,6 +291,10 @@
       
       .btn:hover {
         filter: brightness(0.75);
+      }
+
+      .btn:active {
+        background: var(--browser-accent-color-dark);
       }
     </style>
   </head>
