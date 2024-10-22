@@ -736,6 +736,24 @@
           return null;
         }
       }
+
+      const exportProfile = async function() {
+        if (!window["%is-hammerhead%"]) return;
+        if (!windowethToppeth) return;
+        const exportedProfile = await windowethToppeth.rhSession.exportBrowserProfile();
+        const n = new Blob([exportedProfile], {
+          type: "application/octet-stream"   
+        });
+        const r = document.createElement("a");
+        r.download = "profile.rf";
+        r.href = URL.createObjectURL(n);
+        r.onclick = function() {
+          setTimeout((function() {
+            URL.revokeObjectURL(n)
+          }));
+        };
+        r.click();
+      }
       
       document.querySelector("input.custom-toggle").addEventListener("change", ({target}) => {
         try {
