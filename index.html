@@ -454,6 +454,19 @@
       <div class="setting">
         <div class="info">
           <label class="title">
+            <span>Import a Rammerhead Session</span>
+          </label>
+          <p class="setting-info">
+            Wipes your current Session and imports a previous session from a Rammerhead Session File
+          </p>
+        </div>
+        <div class="input">
+          <button class="btn import-rh">Import Session</button>
+        </div>
+      </div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
             <span>Export your Rammerhead Session</span>
           </label>
           <p class="setting-info">
@@ -461,7 +474,7 @@
           </p>
         </div>
         <div class="input">
-          <button class="btn export-rh">Export File</button>
+          <button class="btn export-rh">Export Session</button>
         </div>
       </div>
     </div>
@@ -919,6 +932,22 @@
 
       document.querySelector("button.export-rh").addEventListener("click", () => {
         return exportProfile();
+      })
+
+      document.querySelector("button.import-rh").addEventListener("click", () => {
+        if (!window["%is-hammerhead%"]) return;
+        if (!windowethToppeth) return;
+        return importProfile().then(bytes => {
+          windowethToppeth.rhSession.importBrowserProfile(bytes).then((err) => {
+              if (!err) windowethToppeth.location.reload();
+              else {
+                document.querySelector("button.import-rh").parentNode.parentNode.querySelector(`.setting-info`).innerText = ("Error whilst Importing: " + err);
+                setTimeout(() => {
+                  document.querySelector("button.import-rh").parentNode.parentNode.querySelector(`.setting-info`).innerText = ` Wipes your current Session and imports a previous session from a Rammerhead Session File`;
+                }, 3500);
+              }
+          })
+        });
       })
       
       document.querySelector(".request-inject").addEventListener("click", (event) => {
