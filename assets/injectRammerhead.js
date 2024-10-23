@@ -231,7 +231,7 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
   globalThis.setHTTPProxy = async function(_) {
     (await rhSession.setHttpProxySetting(_));
     const result = await rhSession.getHttpProxySetting(), state = {
-      endpoint: ("http://" + result.proxyAuth + "@" + result.host)
+      endpoint: (result? ("http://" + result?.proxyAuth + "@" + result?.host) : "")
     }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
@@ -572,7 +572,7 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
     const result = await rhSession.getHttpProxySetting();
     
     const state = {
-      endpoint: ("http://" + result.proxyAuth + "@" + result.host)
+      endpoint: (result? ("http://" + result?.proxyAuth + "@" + result?.host) : "")
     }, domains = await getAuthorizedSettingPages();
     
     Object.entries(await window.getFrames()).filter(e => {
