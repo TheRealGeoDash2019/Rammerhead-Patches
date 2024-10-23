@@ -837,7 +837,7 @@
       const resetBrowser = async function() {
         if (!window["%is-hammerhead%"]) return;
         if (!windowethToppeth) return;
-        await windowethToppeth.rhSession.delete();
+        windowethToppeth.rhSession.delete();
         windowethToppeth.localStorage.clear();
         windowethToppeth.sessionStorage.clear();
         windowethToppeth.location.reload();
