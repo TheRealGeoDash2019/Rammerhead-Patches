@@ -110,7 +110,7 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
   
   globalThis.setThemeURL = function(theme) {
     if (theme) {
-      console.log("Updating Theme CSS: " + theme)
+      // console.log("Updating Theme CSS: " + theme)
       window.localStorage.setItem("theme:cssLocation", theme);
       if (theme.replaceAll(" ", "").length < 1) {
         document.querySelectorAll("link.custom-theming").forEach(e => {
@@ -128,7 +128,7 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
       document.head.appendChild(o);
       return theme;
     } else {
-      console.log("Removing Theme CSS...")
+      // console.log("Removing Theme CSS...")
       window.localStorage.removeItem("theme:cssLocation");
       document.querySelectorAll("link.custom-theming").forEach(e => {
         e.remove();
@@ -164,8 +164,8 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
         } else {
             temp.push({type: "tabTheming", data: {enabled: _, url: null}});
         }
-        console.log(old)
-        console.log(temp);
+        // console.log(old)
+        // console.log(temp);
         await rhSession._putAllData(`data`, temp);
         globalThis.toggleTheme(_);
     },
@@ -177,8 +177,8 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
         } else {
             temp.push({type: "tabTheming", data: {enabled: true, url: _}});
         }
-        console.log(old)
-        console.log(temp);
+        // console.log(old)
+        // console.log(temp);
         await rhSession._putAllData(`data`, temp);
         globalThis.setThemeURL(_);
     }
@@ -328,7 +328,7 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
         try {
           let tab = document.querySelector(`div[class^="browser-tab-content"] iframe[style='display: block;']`);
           if (tab) {
-            console.log(tab);
+            // console.log(tab);
             tab.contentWindow.location.reload();
           }
         } catch (_) {
@@ -358,18 +358,6 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
       executed: false,
       exec: function(event) {
         chromeTabs.removeTab(chromeTabs.activeTabEl)
-      }
-    },
-    /* Open DevTools */
-    /* CTRL + SHIFT + I (overridden) */
-    {
-      keys: [16, 17, 73],
-      executed: false,
-      exec: function(event) {
-        console.debug("Launching DevTools");
-        if (chromeTabs.activeTabEl.state.iframe) {
-          chromeTabs.activeTabEl.state.iframe.contentWindow.eval(chromeTabs.activeTabEl.state.iframe.contentWindow.__proc$Script(`eval(atob("Y29uc3QgbyA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoInNjcmlwdCIpO28uc3JjID0gImh0dHBzOi8vZGV2dG9vbHMubGhvc3QuZGV2L3NjcmlwdHMvbGF1bmNoZXIuanMiO2RvY3VtZW50LmhlYWQuYXBwZW5kQ2hpbGQobyk7"))`));
-        }
       }
     }
   ];
