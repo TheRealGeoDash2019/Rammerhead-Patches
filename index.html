@@ -477,6 +477,19 @@
           <button class="btn export-rh">Export Session</button>
         </div>
       </div>
+      <div class="setting">
+        <div class="info">
+          <label class="title">
+            <span>Reset Browser</span>
+          </label>
+          <p class="setting-info">
+            WARNING: This action is irreversable! Once you click "Reset Browser", the browser will reload to a fresh state.
+          </p>
+        </div>
+        <div class="input">
+          <button class="btn reset-rh">Reset Browser</button>
+        </div>
+      </div>
     </div>
     <div class="settings-header">
       <div>
@@ -819,6 +832,13 @@
             return rej("Missing APIs")
           }
         });
+      };
+
+      const resetBrowser = async function() {
+        await rhSession.delete();
+        localStorage.clear();
+        sessionStorage.clear();
+        location.reload();
       }
       
       document.querySelector("input.custom-toggle").addEventListener("change", ({target}) => {
@@ -932,6 +952,10 @@
 
       document.querySelector("button.export-rh").addEventListener("click", () => {
         return exportProfile();
+      })
+
+      document.querySelector("button.reset-rh").addEventListener("click", () => {
+        return resetBrowser();
       })
 
       document.querySelector("button.import-rh").addEventListener("click", () => {
