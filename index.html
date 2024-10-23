@@ -835,10 +835,12 @@
       };
 
       const resetBrowser = async function() {
-        await rhSession.delete();
-        localStorage.clear();
-        sessionStorage.clear();
-        location.reload();
+        if (!window["%is-hammerhead%"]) return;
+        if (!windowethToppeth) return;
+        await windowethToppeth.rhSession.delete();
+        windowethToppeth.localStorage.clear();
+        windowethToppeth.sessionStorage.clear();
+        windowethToppeth.location.reload();
       }
       
       document.querySelector("input.custom-toggle").addEventListener("change", ({target}) => {
