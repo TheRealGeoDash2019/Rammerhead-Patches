@@ -502,7 +502,7 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
     const result = await rhSession.getHttpProxySetting();
     
     const state = {
-      endpoint: ("http://" + result.proxyAuth + "@" + result.host)
+      endpoint: (result? ("http://" + result?.proxyAuth + "@" + result?.host) : "")
     }
     
     const domains = await getAuthorizedSettingPages();
