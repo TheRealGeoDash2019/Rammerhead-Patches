@@ -4,7 +4,7 @@ html.custom-theme {
   --browser-active-icon-color: hsl(210deg 3% 45%);
   --browser-ntp-color: var(--browser-accent-color);
   --browser-icon-color: #ccc;
-  --browser-logo-filter: invert(1);
+  --browser-logo-filter: invert(1) hue-rotate(310deg) brightness(4);
   --browser-search-highlight-color: rgb(255 255 255 / 10%);
   --browser-tab-divider-color: #4a4d51;
   --browser-tab-highlight-color: #292b2e;
