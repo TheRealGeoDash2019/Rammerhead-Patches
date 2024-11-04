@@ -16,9 +16,6 @@
         font-family: "Google Sans", sans-serif !important;
         background: var(--browser-accent-color);
         color: var(--browser-text-primary-color);
-      }
-      
-      html.no-rh body {
         padding: 0px;
         margin: 0px;
       }
@@ -159,6 +156,10 @@
       .no-rammerhead-warning, .brh-warning-header {
         font-size: 24px;
       }
+
+      .brh-warning-text {
+        font-size: 18px;
+      }
       
       .no-rammerhead-warning a, .brh-warning a {
         text-decoration: none;
@@ -298,7 +299,7 @@
     <div class="brh-warning hidden">
       <img src="https://rh.settings.lhost.dev/logo.png">
       <div class="brh-warning-header">Warning!</div>
-      <div class="brh-warning-header">This Rammerhead Browser is modified with Better RH! If you don't wish for it to be modded, please use another link or visit the default link here: <a href="https://direct.rammerhead.org">Default RH Browser</a></div>
+      <div class="brh-warning-text">This Rammerhead Browser is modified with Better RH! If you don't wish for it to be modded, please use another link or visit the default link here: <a href="https://direct.rammerhead.org">Default RH Browser</a></div>
     </div>
     <script>
       const burstSandbox = function() {
@@ -325,7 +326,6 @@
       const hideWindow = function() {
         document.querySelector(".no-rammerhead").classList.remove("hidden");
         document.querySelectorAll("brh-warning").forEach(e => e.remove());
-        document.querySelector("html").classList.add("no-rh");
       }
       
       const getQueryParams = function() {
