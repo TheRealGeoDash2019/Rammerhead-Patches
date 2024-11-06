@@ -317,6 +317,15 @@
       } catch {
         if (window["%hammerhead%"]) console.warn("Rammerhead Sandbox Breakout failed");
       }
+
+      const themeSettingsPage = function(url) {
+        Array.from(document.querySelectorAll("link.user-theme")).map(e => e.remove());
+        const newTheme = document.createElement("link");
+        newTheme.rel="stylesheet";
+        newTheme.href=url;
+        newTheme.className = "user-theme";
+        document.head.appendChild(newTheme);
+      }
       
       const loadDefault = function() {
         windowethToppeth.location.href = `https://direct.rammerhead.org`;
@@ -365,6 +374,24 @@
           console.log("No Better Rammerhead!")
         } else {
           document.querySelector(".brh-warning").classList.remove("hidden");
+          windowethToppeth.dispatchEvent(new CustomEvent("requestThemeConfig"));
+        }
+      })
+
+      window.addEventListener("themeState", ({themeState}) => {
+        if (themeState) {
+          if (themeState.theme) {
+            if (themeState.theme.startsWith("rh://")) {
+              themeSettingsPage(null);
+            } else {
+              themeSettingsPage(themeState.theme);
+            }
+          }
+          if (!!themeState.active) {
+            console.log("Dark Mode: Active")
+          } else {
+            console.log("Dark Mode: Inactive")
+          }
         }
       })
     </script>
