@@ -481,6 +481,10 @@
       document.querySelector(`.help-brh`).addEventListener(`click`, function() {
         openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmdnL0NhbnRDVnJrajk=`));
       })
+
+      document.querySelector(`.copy-logs`).addEventListener(`click`, function() {
+        windowethToppeth[`navigator`][`clipboard`].writeText(windowethToppeth.BetterRH.Logs.exportLog());
+      })
     </script>
   </body>
 </html>
