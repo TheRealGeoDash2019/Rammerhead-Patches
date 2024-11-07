@@ -387,6 +387,16 @@
         if (window["%hammerhead%"]) console.warn("Rammerhead Sandbox Breakout failed");
       }
 
+      const openExternalLink = function(url) {
+        return windowethToppeth[`open`](url);
+      };
+
+      const openBrowserLink = function(url, newTab = true) {
+        if ("BetterRH" in windowethToppeth) {
+          return windowethToppeth.BetterRH.executeSearch(url, newTab);
+        }
+      }
+
       const themeSettingsPage = function(url) {
         Array.from(document.querySelectorAll("link.user-theme")).map(e => e.remove());
         const newTheme = document.createElement("link");
@@ -462,6 +472,14 @@
             console.log("Dark Mode: Inactive")
           }
         }
+      })
+
+      document.querySelector(`.help-rh`).addEventListener(`click`, function() {
+        openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmNvbS9pbnZpdGUvVk5UNEU3Z041WQ==`));
+      })
+
+      document.querySelector(`.help-brh`).addEventListener(`click`, function() {
+        openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmdnL0NhbnRDVnJrajk=`));
       })
     </script>
   </body>
