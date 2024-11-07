@@ -491,8 +491,7 @@
 
       document.querySelector(`.copy-logs`).addEventListener(`click`, function() {
         const logs = windowethToppeth.BetterRH.Logs.exportLog();
-        const enc = new TextEncoder().encode(logs);
-        const data = new Blob(enc, {
+        const data = new Blob([logs], {
           type: "text/plain",
         });
         const uri = URL.createObjectURL(data);
