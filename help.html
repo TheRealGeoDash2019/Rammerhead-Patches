@@ -360,14 +360,14 @@
           <img class="setting-icon" width="48px" height="48px" src="/assets/icons/logs.png">
           <div class="info">
             <label class="title">
-              <span>Copy Browser Diagnostics</span>
+              <span>Export Browser Diagnostics</span>
             </label>
             <p class="setting-info">
-              Click the Button to copy Diagnostics logs
+              Click the Button to export Diagnostics logs
             </p>
           </div>
           <div class="input">
-            <button class="btn copy-logs">Copy Logs</button>
+            <button class="btn copy-logs">Export Logs</button>
           </div>
         </div>
       </div>
@@ -482,8 +482,21 @@
         openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmdnL0NhbnRDVnJrajk=`));
       })
 
+      const downloadFile = function(filename, src) {
+        const a = document.createElement(`a`);
+        a.download = filename;
+        a.href = src;
+        return a.click();
+      }
+
       document.querySelector(`.copy-logs`).addEventListener(`click`, function() {
-        windowethToppeth[`navigator`][`clipboard`].writeText(windowethToppeth.BetterRH.Logs.exportLog());
+        const logs = windowethToppeth.BetterRH.Logs.exportLog();
+        const enc = new TextEncoder().encode(logs);
+        const data = new Blob(enc, {
+          type: "text/plain",
+        });
+        const uri = URL.createObjectURL(data);
+        return downloadFile("rh-diagnosticlog.txt", uri);
       })
     </script>
   </body>
