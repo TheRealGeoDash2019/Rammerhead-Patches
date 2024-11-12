@@ -6,3 +6,6 @@ My Testing of Rammerhead Theming and Shortcuts. I guess...
 - [Basic Shortcuts](/Shortcuts.md)
 - [Basic Theming w/ Default Dark Mode on Rammerhead Browsers](/Themes/README.md)
 - [Revamped Settings Page](/Settings.md)
+
+# Looking for other Modifications?
+- [Better RH](https://github.com/TheRealGeoDash2019/RammerheadBundlePatch)
