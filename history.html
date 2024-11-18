@@ -405,29 +405,12 @@
         }
       })
 
-      document.querySelector(`.help-rh`).addEventListener(`click`, function() {
-        openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmNvbS9pbnZpdGUvVk5UNEU3Z041WQ==`));
-      })
-
-      document.querySelector(`.help-brh`).addEventListener(`click`, function() {
-        openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmdnL0NhbnRDVnJrajk=`));
-      })
-
       const downloadFile = function(filename, src) {
         const a = document.createElement(`a`);
         a.download = filename;
         a.href = src;
         return a.click();
       }
-
-      document.querySelector(`.copy-logs`).addEventListener(`click`, function() {
-        const logs = windowethToppeth.BetterRH.Logs.exportLog();
-        const data = new Blob([logs], {
-          type: "text/plain",
-        });
-        const uri = URL.createObjectURL(data);
-        return downloadFile("rh-diagnosticlog.txt", uri);
-      })
     </script>
   </body>
 </html>
