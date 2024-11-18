@@ -1,0 +1,480 @@
+<html class="custom-theme">
+  <head>
+    <title>Help - Better RH</title>
+    <style>
+      @import url("/assets/GoogleSans.css");
+      
+      html.custom-theme {
+        --browser-accent-color: #202020;
+        --browser-accent-color-dark: #151515;
+        --browser-text-primary-color: #fff;
+        --browser-text-secondary-color: #ddd;
+        --browser-logo-filter: "";
+      }
+      
+      html, body {
+        font-family: "Google Sans", sans-serif !important;
+        background: var(--browser-accent-color);
+        color: var(--browser-text-primary-color);
+      }
+      
+      html.no-rh body {
+        padding: 0px;
+        margin: 0px;
+      }
+      
+      .hidden {
+        display: none !important;
+      }
+      
+      div.settings-header {
+        user-select: none !important;
+        padding-top: 1vh;
+        padding-left: 1vw;
+        font-size: 30px;
+        font-weight: 600;
+        display: flex;
+      }
+      
+      div.setting {
+        padding: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      div.setting label.title span {
+        font-weight: 600;
+        font-size: 18px;
+      }
+      
+      div.setting div.info {
+        user-select: none !important;
+      }
+      
+      div.setting p.setting-info {
+        margin-top: 4px;
+        color: var(--browser-text-secondary-color);
+      }
+    </style>
+    <style>
+      :root {
+        --switch-active: goldenrod;
+      }
+      .switch {
+        scale: 80%;
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        filter: var(--browser-logo-filter);
+      }
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #888;
+        -webkit-transition: .2s;
+        transition: .2s;
+        border-radius: 34px;
+        height: 24px;
+      }
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 36px;
+        width: 36px;
+        left: 0px;
+        bottom: -6px;
+        background-color: #555;
+        -webkit-transition: .2s;
+        transition: .2s;
+        border-radius: 50%;
+      }
+      input:checked + .slider {
+        background-color: var(--switch-active);
+      }
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+      }
+      input:checked + .slider:before {
+        filter: brightness(0.5);
+        background-color: var(--switch-active);
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+      
+      input[type="text"] {
+        font-size: 14px;
+        font-family: "Google Sans", sans-serif !important;
+        width: 50vw;
+        color: var(--browser-text-primary-color);
+        appearance: none;
+        background: var(--browser-accent-color-dark);
+        padding: 8px;
+        border: none;
+        border-bottom: 4px solid transparent;
+      }
+      
+      input[type="text"]:focus-visible {
+        outline: none;
+        border-bottom: 4px solid #353535;
+      }
+      
+      .browser-favicon-preview {
+        display: none;
+        user-select: none;
+      }
+      
+      .browser-favicon-preview[src] {
+        display: block;
+        width: 24px;
+        height: 24px;
+        padding: 8px;
+      }
+      
+      .favicon-input {
+        display: flex;
+        align-items: center;
+      }
+      
+      .no-rammerhead {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      
+      .no-rammerhead-warning {
+        font-size: 24px;
+      }
+      
+      .no-rammerhead-warning a {
+        text-decoration: none;
+        color: #ddd;
+      }
+      
+      .no-rammerhead-warning a:hover {
+        text-decoration: underline;
+        color: white;
+      }
+      
+      .no-inject {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+      }
+      
+      .no-inject button.request-inject {
+        background: #050505;
+        color: white;
+        border: none;
+        padding: 8px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: 0.3s;
+        font-family: "Google Sans";
+      }
+      
+      .no-inject button.request-inject:active {
+        background: #181818;
+      }
+      
+      .no-inject button.request-inject:hover {
+        background: #101010;
+      }
+      
+      .svg-icon {
+        fill: var(--browser-text-secondary-color);
+        color: var(--browser-text-secondary-color);
+        opacity: 0.7;
+        transition: 0.2s;
+        padding: 6px;
+      }
+      
+      .github-icon {
+        fill: var(--browser-text-secondary-color);
+        color: var(--browser-text-secondary-color);
+        opacity: 0.7;
+        transition: 0.2s;
+      }
+      
+      .github-icon:hover {
+        fill: var(--browser-text-primary-color);
+        color: var(--browser-text-primary-color);
+        opacity: 1;
+      }
+      
+      .svg-icon:hover {
+        fill: var(--browser-text-primary-color);
+        color: var(--browser-text-primary-color);
+        opacity: 1;
+      }
+      
+      .clickable {
+        cursor: pointer;
+      }
+      
+      .modal-overlay {
+        background: #000a;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .modal-close {
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        z-index: 99999;
+      }
+      
+      .modal-content {
+        width: 90vw;
+        height: 90vh;
+        background: var(--browser-accent-color);
+        color: var(--browser-text-primary-color);
+        overflow: scroll;
+        scrollbar-width: none; /* Firefox */
+        -ms-overflow-style: none; /* Why are you on Internet Explorer */
+      }
+
+      .modal-content::-webkit-scrollbar { 
+        display: none;  /* Safari and Chrome */
+      }
+
+      .setting.github-info .input {
+        display: flex;
+        align-items: center;
+      }
+
+      .patcher-commit {
+        user-select: none;
+        margin-right: 8px;
+      }
+
+      .btn {
+        transition: filter 0.3s, background 0.3s;
+        border-radius: 8px;
+        border: solid 0.5px var(--browser-accent-color-dark);
+        color: var(--browser-text-primary-color);
+        background: var(--switch-active);
+        padding: 12px 16px;
+        cursor: pointer;
+        font-family: "Google Sans", sans-serif !important;
+      }
+      
+      .btn:hover {
+        filter: brightness(0.75);
+      }
+
+      .btn:active {
+        background: var(--browser-accent-color-dark);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-rammerhead hidden">
+      <img src="/assets/BetterRHLogo.png" style="max-width: 25rem;">
+      <div class="no-rammerhead-warning">Use a <a href="https://betterrh.lhost.dev">Better RH Browser</a> to view this Page</div>
+    </div>
+    <div class="brh-warning hidden">
+      <div class="settings-header">
+        <div>Need Help</div>
+      </div>
+      <div>
+        <div class="setting">
+          <img class="setting-icon" width="48px" height="48px" src="https://rh.settings.lhost.dev/logo.png">
+          <div class="info">
+            <label class="title">
+              <span>Help with Rammerhead</span>
+            </label>
+            <p class="setting-info">
+              Click to join their Discord
+            </p>
+          </div>
+          <div class="input">
+            <button class="btn help-rh">Join Discord</button>
+          </div>
+        </div>
+        <div class="setting">
+          <img class="setting-icon" width="48px" height="48px" src="/assets/BetterRHLogo.png">
+          <div class="info">
+            <label class="title">
+              <span>Help with Better RH</span>
+            </label>
+            <p class="setting-info">
+              Click to join their Discord
+            </p>
+          </div>
+          <div class="input">
+            <button class="btn help-brh">Join Discord</button>
+          </div>
+        </div>
+      </div>
+      <hr style="width: 100%;" />
+      <div class="settings-header">
+        <div>Better RH Diagnostics</div>
+      </div>
+      <div>
+        <div class="setting">
+          <img class="setting-icon" width="48px" height="48px" src="/assets/icons/logs.png">
+          <div class="info">
+            <label class="title">
+              <span>Export Browser Diagnostics</span>
+            </label>
+            <p class="setting-info">
+              Click the Button to export Diagnostics logs
+            </p>
+          </div>
+          <div class="input">
+            <button class="btn copy-logs">Export Logs</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const burstSandbox = function() {
+        // Rammerhead Clients usually have %hammerhead%
+        console.debug("Bursting Rammerhead Sandbox");
+        return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; return Func(`return window.top`)();")(); 
+      }
+
+      let windowethToppeth; 
+
+      try {
+        windowethToppeth = burstSandbox();
+      } catch {
+        if (window["%hammerhead%"]) console.warn("Rammerhead Sandbox Breakout failed");
+      }
+
+      const openExternalLink = function(url) {
+        return windowethToppeth[`open`](url);
+      };
+
+      const openBrowserLink = function(url, newTab = true) {
+        if ("BetterRH" in windowethToppeth) {
+          return windowethToppeth.BetterRH.executeSearch(url, newTab);
+        }
+      }
+
+      const themeSettingsPage = function(url) {
+        Array.from(document.querySelectorAll("link.user-theme")).map(e => e.remove());
+        const newTheme = document.createElement("link");
+        newTheme.rel="stylesheet";
+        newTheme.href=url;
+        newTheme.className = "user-theme";
+        document.head.appendChild(newTheme);
+      }
+      
+      const loadDefault = function() {
+        windowethToppeth.location.href = `https://direct.rammerhead.org`;
+      };
+
+      const getPatcherVersion = function() {
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", "/commit.txt", false);
+        xhr.send()
+        return xhr.responseText;
+      }
+
+      const hideWindow = function() {
+        document.querySelector(".no-rammerhead").classList.remove("hidden");
+        document.querySelectorAll("brh-warning").forEach(e => e.remove());
+      }
+      
+      const getQueryParams = function() {
+        return Object.fromEntries(window.location.search.slice(1).split("&").map(e => e.split("=")));
+      }
+      
+      const isTrue = function(_) {
+        if (_ instanceof Array) return (_.length > 0);
+        if (_ instanceof Object) return true;
+        if (typeof _ === "boolean") return _;
+        return (_ === "true" || _ === "yes" || parseInt(_) >= 1 || parseInt(_) >= "1");
+      }
+      
+      const checkForDRC = function() {
+        const dRC = getQueryParams().disableRammerheadChecks;
+        if (dRC) {
+          if (isTrue(dRC)) {
+            console.log("No Better Rammerhead!");
+            return document.querySelector(".brh-warning").classList.remove("hidden");
+          }
+        }
+        return hideWindow();
+      }
+
+      window.addEventListener("load", () => {
+        // Continue with Checking for Rammerhead
+        if (!window["%is-hammerhead%"]) return checkForDRC();
+        if (!windowethToppeth) return checkForDRC();
+        if (windowethToppeth.location.href === "about:blank") return checkForDRC();
+        if (!windowethToppeth.BetterRH) {
+          console.log("No Better Rammerhead!")
+        } else {
+          document.querySelector(".brh-warning").classList.remove("hidden");
+          windowethToppeth.dispatchEvent(new CustomEvent("requestThemeConfig"));
+        }
+      })
+
+      window.addEventListener("themeState", ({themeState}) => {
+        if (themeState) {
+          if (themeState.theme) {
+            if (themeState.theme.startsWith("rh://")) {
+              themeSettingsPage(null);
+            } else {
+              themeSettingsPage(themeState.theme);
+            }
+          }
+          if (!!themeState.active) {
+            console.log("Dark Mode: Active")
+          } else {
+            console.log("Dark Mode: Inactive")
+          }
+        }
+      })
+
+      document.querySelector(`.help-rh`).addEventListener(`click`, function() {
+        openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmNvbS9pbnZpdGUvVk5UNEU3Z041WQ==`));
+      })
+
+      document.querySelector(`.help-brh`).addEventListener(`click`, function() {
+        openExternalLink(atob(`aHR0cHM6Ly9kaXNjb3JkLmdnL0NhbnRDVnJrajk=`));
+      })
+
+      const downloadFile = function(filename, src) {
+        const a = document.createElement(`a`);
+        a.download = filename;
+        a.href = src;
+        return a.click();
+      }
+
+      document.querySelector(`.copy-logs`).addEventListener(`click`, function() {
+        const logs = windowethToppeth.BetterRH.Logs.exportLog();
+        const data = new Blob([logs], {
+          type: "text/plain",
+        });
+        const uri = URL.createObjectURL(data);
+        return downloadFile("rh-diagnosticlog.txt", uri);
+      })
+    </script>
+  </body>
+</html>
