@@ -503,6 +503,8 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
       if ("History" in window?.BetterRH) {
         const history = await BetterRH.History.fetchAll();
 
+        const domains = await getAuthorizedSettingPages();
+
         Object.entries(await window.getFrames()).filter(e => {
           try {
             const {hostname} = new URL(e[0]);
