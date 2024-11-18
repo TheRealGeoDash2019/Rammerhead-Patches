@@ -295,7 +295,7 @@
       <img src="/assets/BetterRHLogo.png" style="max-width: 25rem;">
       <div class="no-rammerhead-warning">Use a <a href="https://betterrh.lhost.dev">Better RH Browser</a> to view this Page</div>
     </div>
-    <div class="brh-warning hidden">
+    <div class="brh-history hidden">
       <div class="settings-header">
         <div>Browsing History</div>
       </div>
@@ -369,7 +369,7 @@
         if (dRC) {
           if (isTrue(dRC)) {
             console.log("No Better Rammerhead!");
-            return document.querySelector(".brh-warning").classList.remove("hidden");
+            return document.querySelector(".brh-history").classList.remove("hidden");
           }
         }
         return hideWindow();
@@ -383,7 +383,7 @@
         if (!windowethToppeth.BetterRH) {
           console.log("No Better Rammerhead!")
         } else {
-          document.querySelector(".brh-warning").classList.remove("hidden");
+          document.querySelector(".brh-history").classList.remove("hidden");
           windowethToppeth.dispatchEvent(new CustomEvent("requestThemeConfig"));
         }
       })
