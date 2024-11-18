@@ -479,6 +479,12 @@
         }
       })
 
+      document.querySelector(`.clear-hist`).addEventListener("click", function() {
+        windowethToppeth?.BetterRH?.History?.clear?.().then((e) => {
+          window.location.reload();
+        });
+      });
+      
       const downloadFile = function(filename, src) {
         const a = document.createElement(`a`);
         a.download = filename;
