@@ -4,6 +4,10 @@
     <style>
       @import url("/assets/GoogleSans.css");
       
+      * {
+        box-sizing: border-box;
+      }
+
       html.custom-theme {
         --browser-accent-color: #202020;
         --browser-accent-color-dark: #151515;
@@ -288,7 +292,36 @@
       .btn:active {
         background: var(--browser-accent-color-dark);
       }
+
+      .history-entry {
+        display: flex;
+        flex-direction: row;
+        padding: 4px;
+        width: 100%;
+      }
+
+      .history-entry:hover {
+        filter: brightness(0.8);
+        cursor: pointer;
+      }
+
+      .entry-date {
+        padding: 4px;
+        opacity: 0.6;
+        user-select: none;
+      }
+
+      .entry-link {
+        padding: 4px;
+        flex: 1 auto;
+      }
+
+      .history-entries {
+        display: flex;
+        flex-direction: column;
+      }
     </style>
+    <script src="/assets/moment.js"></script>
   </head>
   <body>
     <div class="no-rammerhead hidden">
@@ -300,14 +333,41 @@
         <div>Browsing History</div>
       </div>
       <hr />
-      <div class="setting">
+      <div class="setting history-entries">
+        <div class="history-entry">
+          <div class="entry-date">Today at 11:59 PM</div>
+          <div class="entry-link">https://google.com</div>
+        </div>
+        <div class="history-entry">
+          <div class="entry-date">Today at 11:59 PM</div>
+          <div class="entry-link">https://google.com</div>
+        </div>
       </div>
     </div>
+    <template id="history-template">
+      <div class="history-entry">
+        <div class="entry-date">{{TIME}}</div>
+        <div class="entry-link">{{LINK}}</div>
+      </div>
+    </template>
     <script>
+      const historyEntries = document.querySelector(`.history-entries`);
       const burstSandbox = function() {
         // Rammerhead Clients usually have %hammerhead%
         console.debug("Bursting Rammerhead Sandbox");
         return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; return Func(`return window.top`)();")(); 
+      }
+
+      const getTimestamp = function(date) {
+        return moment(date).format("MM/DD/YYYY hh:mm A");
+      }
+
+      const createHistoryEntry = function(timestamp, url) {
+        const rawEntry = document.querySelector(`#history-template`).content.cloneNode(true);
+        const ts = getTimestamp(timestamp);
+        rawEntry.querySelector(".entry-date").innerText = ts;
+        rawEntry.querySelector(".entry-link").innerText = url;
+        return rawEntry;
       }
 
       let windowethToppeth; 
@@ -385,8 +445,23 @@
         } else {
           document.querySelector(".brh-history").classList.remove("hidden");
           windowethToppeth.dispatchEvent(new CustomEvent("requestThemeConfig"));
+          windowethToppeth.dispatchEvent(new CustomEvent("requestHistory"));
         }
       })
+
+      window.addEventListener("historyState", ({historyState}) => {
+        if (historyState) {
+          if (historyState.length && historyState.length > 0) {
+            Array.from(historyEntries.childNodes).forEach(e => e.remove());
+            const entries = historyState.map(e => {
+              return createHistoryEntry(e.viewedAt, e.url);
+            })
+            historyEntries.append(...entries);
+          } else {
+            Array.from(historyEntries.childNodes).forEach(e => e.remove());
+          }
+        }
+      });
 
       window.addEventListener("themeState", ({themeState}) => {
         if (themeState) {
