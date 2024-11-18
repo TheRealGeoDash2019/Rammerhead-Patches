@@ -513,7 +513,7 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
         }).forEach(e => {
           let event = new CustomEvent("historyState");
           event.historyState = history;
-          e[1].dispatchEvent()
+          e[1].dispatchEvent(event)
         })
       }
     }
