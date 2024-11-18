@@ -424,7 +424,7 @@
         const ts = getTimestamp(timestamp);
         rawEntry.querySelector(".entry-date").innerText = ts;
         rawEntry.querySelector(".entry-link").innerText = url;
-        rawEntry.addEventListener("click", function() {
+        rawEntry.querySelector(".history-entry").addEventListener("click", function() {
           return openBrowserLink(url);
         });
         return rawEntry;
