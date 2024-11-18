@@ -354,17 +354,6 @@
         return moment(date).format("MM/DD/YYYY hh:mm A");
       }
 
-      const createHistoryEntry = function(timestamp, url) {
-        const rawEntry = document.querySelector(`#history-template`).content.cloneNode(true);
-        const ts = getTimestamp(timestamp);
-        rawEntry.querySelector(".entry-date").innerText = ts;
-        rawEntry.querySelector(".entry-link").innerText = url;
-        rawEntry.addEventListener("click", function() {
-          return openBrowserLink(url);
-        });
-        return rawEntry;
-      }
-
       let windowethToppeth; 
 
       try {
@@ -428,6 +417,17 @@
           }
         }
         return hideWindow();
+      }
+
+      const createHistoryEntry = function(timestamp, url) {
+        const rawEntry = document.querySelector(`#history-template`).content.cloneNode(true);
+        const ts = getTimestamp(timestamp);
+        rawEntry.querySelector(".entry-date").innerText = ts;
+        rawEntry.querySelector(".entry-link").innerText = url;
+        rawEntry.addEventListener("click", function() {
+          return openBrowserLink(url);
+        });
+        return rawEntry;
       }
 
       window.addEventListener("load", () => {
