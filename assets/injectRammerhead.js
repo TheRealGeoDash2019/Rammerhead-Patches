@@ -497,6 +497,27 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
       e[1].dispatchEvent(event);
     })
   })
+
+  window.addEventListener("requestHistory", async (event) => {
+    if ("BetterRH" in window) {
+      if ("History" in window?.BetterRH) {
+        const history = await BetterRH.History.fetchAll();
+
+        Object.entries(await window.getFrames()).filter(e => {
+          try {
+            const {hostname} = new URL(e[0]);
+            return (!!domains.includes(hostname));
+          } catch (_) {
+            return false;
+          }
+        }).forEach(e => {
+          let event = new CustomEvent("historyState");
+          event.historyState = history;
+          e[1].dispatchEvent()
+        })
+      }
+    }
+  });
   
   window.addEventListener("requestProxyConfig", async (event) => {
     const result = await rhSession.getHttpProxySetting();
