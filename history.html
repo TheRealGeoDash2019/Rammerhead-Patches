@@ -319,6 +319,14 @@
         text-overflow: ellipsis;
         white-space: nowrap;
         max-width: 80%;
+        display: flex;
+        align-items: center;
+      }
+
+      .entry-icon {
+        width: 18px;
+        height: 18px;
+        aspect-ratio: 1/1;
       }
 
       .history-entries {
@@ -347,7 +355,7 @@
     <template id="history-template">
       <div class="history-entry">
         <div class="entry-date">{{TIME}}</div>
-        <div class="entry-link">{{LINK}}</div>
+        <div class="entry-link"><img class="entry-icon" src="" />{{LINK}}</div>
       </div>
     </template>
     <script>
@@ -432,6 +440,8 @@
         const ts = getTimestamp(timestamp);
         rawEntry.querySelector(".entry-date").innerText = ts;
         rawEntry.querySelector(".entry-link").innerText = url;
+        const domain = new URL(url, "http://localhost").hostname;
+        rawEntry.querySelector(".entry-icon").src = (`https://www.google.com/s2/favicons?sz=48&domain_url=${domain}`);
         rawEntry.querySelector(".history-entry").addEventListener("click", function() {
           return openBrowserLink(url);
         });
