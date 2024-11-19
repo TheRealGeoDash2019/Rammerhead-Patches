@@ -454,7 +454,7 @@
             Array.from(historyEntries.childNodes).forEach(e => e.remove());
             const entries = historyState.map(e => {
               return createHistoryEntry(e.viewedAt, e.url);
-            })
+            }).reverse()
             historyEntries.append(...entries);
           } else {
             Array.from(historyEntries.childNodes).forEach(e => e.remove());
