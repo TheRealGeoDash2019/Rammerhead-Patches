@@ -355,7 +355,8 @@
     <template id="history-template">
       <div class="history-entry">
         <div class="entry-date">{{TIME}}</div>
-        <div class="entry-link"><img class="entry-icon" src="" />{{LINK}}</div>
+        <img class="entry-icon" src="" />
+        <div class="entry-link">{{LINK}}</div>
       </div>
     </template>
     <script>
@@ -445,6 +446,7 @@
         rawEntry.querySelector(".history-entry").addEventListener("click", function() {
           return openBrowserLink(url);
         });
+        rawEntry.querySelector(".entry-link").insertBefore(rawEntry.querySelector(".entry-icon"), rawEntry.querySelector(".entry-link").childNodes[0])
         return rawEntry;
       }
 
