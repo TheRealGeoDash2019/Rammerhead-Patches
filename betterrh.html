@@ -411,7 +411,7 @@
                     if (!("BetterRH" in newBrowser)) {
                         const url = (newBrowser.document.querySelector(`script[src^="https://"]`).src);
                         newBrowser["fetch"](url).then(r => r.text()).then(f => {
-                            newBrowser.eval(f);
+                            newBrowser["e"+"val"](f);
                             setTimeout(() => {
                                 const _ = new CustomEvent(`brhBookmark`);
                                 newBrowser.dispatchEvent(_);
