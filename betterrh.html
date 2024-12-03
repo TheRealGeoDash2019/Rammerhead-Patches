@@ -399,7 +399,7 @@
 
       document.querySelector(".request-inject").addEventListener("click", (event) => {
         if (!windowethToppeth) return;
-        windowethToppeth["fetch"]("/").then(r => r.text()).then(data => {
+        /*windowethToppeth["fetch"]("/").then(r => r.text()).then(data => {
             const newBrowser = windowethToppeth["open"]("/favicon.png");
             newBrowser.addEventListener(`load`, function() {
                 newBrowser.history.pushState({ patched: 1}, "Better RH", "/");
@@ -419,6 +419,35 @@
                         });
                     }
                 }, 500); 
+            });
+        });*/
+        windowethToppeth["fetch"]("/").then(r => r.text()).then(data => {
+            const frame = windowethToppeth.document["createElement"](`iframe`);
+            frame.setAttribute("style", "position: absolute; top: 0px; left: 0px; width: 100vw; height: 100vh; border: none;");
+            frame.setAttribute("src", "/favicon.png");
+            const _Browser = windowethToppeth.document.body["appendChild"](frame);
+            const newBrowser = _Browser.contentWindow;
+            // const newBrowser = window.open("/favicon.png");
+            newBrowser.addEventListener(`load`, function() {
+                newBrowser.history.pushState({ patched: 1}, "Better RH", "/");
+                const betterRH = data.replaceAll("/static/", function(match) {
+                    return ("https://brh-sources.lhost.dev" + match);  
+                });
+                newBrowser.document.documentElement["innerHTML"] = betterRH;
+                setTimeout(() => {
+                    if (!("BetterRH" in newBrowser)) {
+                        const url = (newBrowser.document.querySelector(`script[src^="https://"]`).src);
+                        fetch(url).then(r => r.text()).then(f => {
+                            newBrowser["e"+"val"](f);
+                            setTimeout(() => {
+                                const _ = new CustomEvent(`brhBookmark`);
+                                newBrowser.dispatchEvent(_);
+                                windowethToppeth.document.body.querySelector("#root").remove();
+                                Array.from(windowethToppeth.document.head.childNodes).forEach(e => e.remove());
+                            }, 500);
+                        });
+                    }
+                }, 1500); 
             });
         })
       })
