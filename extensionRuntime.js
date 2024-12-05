@@ -12,10 +12,9 @@
         zip;
         constructor(id) {
             this.id = id;
-            this.#init();
         }
     
-        async #init() {
+        async init() {
             const { ZipFS } = await import("https://cdn.jsdelivr.net/npm/@zenfs/zip@0.3.1/+esm");
             const extensionBundle = await fetch(`https://crx.therealgeodash.workers.dev/${this.id}/download-as-zip`).then(r => r.arrayBuffer());
             if (extensionBundle) {
