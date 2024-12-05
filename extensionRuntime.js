@@ -69,12 +69,13 @@
         }
     }
     
-    self.addEventListener('fetch', function(event) {
+    self.addEventListener('fetch', async function(event) {
         const req = event.request;
         const url = new URL(req.url);
         if (url.pathname.startsWith("/extension")) {
             const [_, extension, id, ...filepath] = url.pathname.split("/");
             const extensionBin = new ExtensionRuntime(id);
+            await extensionBin.init();
             const fileResponse = new Response(extensionBin.readFile(("/"+filepath.join("/"))), {
                 status: 200,
                 headers: {
