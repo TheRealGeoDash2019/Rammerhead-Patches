@@ -70,7 +70,7 @@
         }
     }
     
-    self.addEventListener('fetch', (event) {
+    self.addEventListener('fetch', function(event) {
         const req = event.request;
         const url = new URL(req.url);
         if (url.pathname.startsWith("/extension")) {
