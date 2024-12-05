@@ -383,25 +383,6 @@
       </div>
     </div>
     <div class="settings-header">
-      Proxy Configuration
-    </div>
-    <hr>
-    <div>
-      <div class="setting">
-        <div class="info">
-          <label class="title">
-            <span>HTTP Proxy URL</span>
-          </label>
-          <p class="setting-info">
-            Route Requests to a HTTP Proxy to get a Different IP
-          </p>
-        </div>
-        <div class="input">
-          <input class="http-proxy" type="text" placeholder="http://username:password@proxyipaddress:proxyport">
-        </div>
-      </div>
-    </div>
-    <div class="settings-header">
       <div>
         About Browser
       </div>
@@ -695,14 +676,6 @@
         }
       })
       
-      window.addEventListener("proxyState", ({proxyState}) => {
-        if (proxyState) {
-          if (proxyState.endpoint) {
-            document.querySelector("input.http-proxy").value = proxyState.endpoint;
-          }
-        }
-      })
-      
       window.addEventListener("infoState", ({infoState}) => {
         if (infoState) {
           globalThis.rhDetails = infoState;
@@ -775,19 +748,6 @@
         try {
           if (windowethToppeth.setBrowserFavIcon) {
             windowethToppeth.setBrowserFavIcon(_);
-            return _;
-          }
-        } catch (_) {
-          return null;
-        }
-      }
-      
-      const toggleHTTPProxy = function(_) {
-        if (!window["%is-hammerhead%"]) return;
-        if (!windowethToppeth) return;
-        try {
-          if (windowethToppeth.setHTTPProxy) {
-            windowethToppeth.setHTTPProxy(_);
             return _;
           }
         } catch (_) {
@@ -870,14 +830,6 @@
       document.querySelector("input.browser-favicon").addEventListener("change", ({target}) => {
         try {
           console.log("Set Browser FavIcon to: %s", toggleBrowserFavIcon(translateFavIcon(target.value.replaceAll(" ", ""))))
-        } catch (_) {
-          console.warn(_);
-        }
-      })
-      
-      document.querySelector("input.http-proxy").addEventListener("change", ({target}) => {
-        try {
-          console.log("Set HTTP Proxy to: %s", toggleHTTPProxy(target.value.replaceAll(" ", "")))
         } catch (_) {
           console.warn(_);
         }
