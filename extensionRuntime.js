@@ -74,7 +74,16 @@
         const req = event.request;
         const url = new URL(req.url);
         if (url.pathname.startsWith("/extension")) {
-            return event.respondWith(Response.json({ working: false }));
+            const [_, extension, id, ...filepath] = url.pathname.split("/");
+            const extensionBin = new ExtensionRuntime(id);
+            const fileResponse = new Response(extensionBin.readFile(("/"+filepath.join("/"))), {
+                status: 200,
+                headers: {
+                  "Access-Control-Allow-Origin": "*",
+                  "Content-Type": self?.mimeTypes?.contentType?.(url.pathname.split("/").slice(-1)) || "text/plain"
+                }
+            })
+            return event.respondWith(fileResponse);
         }
     })
 
