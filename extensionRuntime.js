@@ -68,3 +68,11 @@ class ExtensionRuntime {
         }
     }
 }
+
+self.addEventListener('fetch', (event) {
+    const req = event.request;
+    const url = new URL(req.url);
+    if (url.pathname.startsWith("/extension")) {
+        return event.respondWith(Response.json({ working: false }));
+    }
+})
