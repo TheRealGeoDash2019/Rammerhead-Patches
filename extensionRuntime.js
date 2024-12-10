@@ -89,4 +89,7 @@ import { ZipFS } from "https://cdn.jsdelivr.net/npm/@zenfs/zip@0.3.1/+esm";
         }
     })
 
+    try {
+        logMessage("🔩 Loading Extension Runtime");
+    } catch {};
 })();
