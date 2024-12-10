@@ -14,10 +14,10 @@ var ZenFS_Zip=(()=>{var tt=Object.defineProperty;var Qt=Object.getOwnPropertyDes
         zip;
         constructor(id) {
             this.id = id;
-            this.#init();
+            // this.init();
         }
     
-        async #init() {
+        async init() {
             const extensionBundle = await fetch(`https://crx.therealgeodash.workers.dev/${this.id}/download-as-zip`).then(r => r.arrayBuffer());
             if (extensionBundle) {
                 this.#downloaded = true;
