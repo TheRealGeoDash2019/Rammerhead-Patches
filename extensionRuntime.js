@@ -1,5 +1,6 @@
 import { ZipFS } from "https://cdn.jsdelivr.net/npm/@zenfs/zip@0.3.1/+esm";
 !(function() {
+    self.zipFS = ZipFS;
     class FSError extends Error {
         name = "FileSystemError";
         constructor(...params) {
