@@ -1,3 +1,4 @@
+import { ZipFS } from "https://cdn.jsdelivr.net/npm/@zenfs/zip@0.3.1/+esm";
 !(function() {
     class FSError extends Error {
         name = "FileSystemError";
@@ -16,7 +17,6 @@
         }
     
         async #init() {
-            const { ZipFS } = await import("https://cdn.jsdelivr.net/npm/@zenfs/zip@0.3.1/+esm");
             const extensionBundle = await fetch(`https://crx.therealgeodash.workers.dev/${this.id}/download-as-zip`).then(r => r.arrayBuffer());
             if (extensionBundle) {
                 this.#downloaded = true;
