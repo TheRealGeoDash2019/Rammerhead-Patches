@@ -98,4 +98,5 @@ html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-content {
 html.custom-theme div[class^="browser-tab"] [class^="rhpages"] {
   height: 100%;
   background-color: var(--browser-ntp-color);
+  box-shadow: inset 0px 0px 20px 0px var(--browser-accent-color-dark);
 }
