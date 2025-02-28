@@ -101,3 +101,11 @@ html.custom-theme div[class^="browser-tab"] [class^="rhpages"] {
   background-color: var(--browser-ntp-color);
   box-shadow: inset 0px 0px 20px 0px var(--browser-accent-color-dark);
 }
+
+html.custom-theme [class^="browser-bar-btn"] {
+  background: var(--browser-accent-color-dark) !important;
+}
+
+html.custom-theme [class^="browser-bar-btn"]:hover {
+  background: var(--browser-accent-color) !important;
+}
