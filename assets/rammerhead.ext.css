@@ -69,7 +69,7 @@ html.custom-theme [class^="browser-bar-btn"]:hover {
   background: var(--browser-accent-color) !important;
 }
 
-html.custom-theme [class^="browser-bar"], html.custom-theme [class^="chrome-tabs-optional-shadow-below-bottom-bar"], html.custom-theme [class^="browser-bar-btn"][class$="enabled"]:hover, html.custom-theme [class^="rhnewtab-oldui-btn-container"] span:hover, html.custom-theme [class^="chrome-tabs"] [class^="chrome-tabs-bottom-bar"], html.custom-theme #root [class^="browser"], html.custom-theme [class^="addressbar-btn"]:hover {
+html.custom-theme [class^="browser-bar"], html.custom-theme [class^="chrome-tabs-optional-shadow-below-bottom-bar"], html.custom-theme [class^="browser-bar-btn"][class$="enabled"]:hover, html.custom-theme [class^="rhnewtab-oldui-btn-container"] span:hover, html.custom-theme [class^="chrome-tabs"] [class^="chrome-tabs-bottom-bar"], html.custom-theme #root [class^="browser"]:not([class^="browser-bar-btn"]), html.custom-theme [class^="addressbar-btn"]:hover {
   background: var(--browser-accent-color) !important;
 }
 
