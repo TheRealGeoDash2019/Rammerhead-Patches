@@ -46,8 +46,6 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
     return (await fetch("https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@main/authorizedDomains.json").then(t => t.json())).domains;
   }
   
-  globalThis.Rammerhead = { darkMode: true, versionVerbose: true };
-  
   globalThis.toggleVersionVerbose = function(showVersion = false) {
       document.querySelectorAll(`[class^="rhnewtab-version-container"]`).forEach(e => {
         e.style.display = ((!!showVersion)? "" : "none");
@@ -183,6 +181,8 @@ document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
         globalThis.setThemeURL(_);
     }
   }
+  
+  globalThis.Rammerhead = { darkMode: (await globalThis.rhTheming.getEnabled()), versionVerbose: true };
   
   globalThis.setBrowserTitle = async function(_) {
     (await rhSession.setTabTitle(_));
