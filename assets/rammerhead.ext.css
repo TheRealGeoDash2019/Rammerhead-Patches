@@ -47,7 +47,7 @@ html.custom-theme [class^="browser-tab"], html.custom-theme [class^="addressbar"
   overflow: hidden;
 }
 
-html.custom-theme [class^="addressbar-menu-item-"], html.custom-theme [class^="addressbar-menu"]:not([class^="addressbar-menu-item-icon"]) {
+html.custom-theme [class^="addressbar-menu-item-"]:not([class^="addressbar-menu-item-icon"]), html.custom-theme [class^="addressbar-menu"]:not([class^="addressbar-menu-item-icon"]) {
   background: var(--browser-accent-color-dark) !important;
   color: var(--browser-text-secondary-color);
 }
