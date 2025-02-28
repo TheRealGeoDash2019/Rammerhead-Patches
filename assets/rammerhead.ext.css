@@ -61,11 +61,17 @@ html.custom-theme [class^="addressbar-menu-item-"][style="background-color: rgba
   color: var(--browser-text-primary-color);
 }
 
-html.custom-theme [class^="browser-bar-btn"] {
+
+
+html.custom-theme [class^="addressbar"] > [class^="browser-bar-btn"] {
   background: var(--browser-accent-color-dark) !important;
 }
 
-html.custom-theme [class^="browser-bar-btn"]:hover {
+html.custom-theme [class^="addressbar"] > [class^="browser-bar-btn"]:hover {
+  background: var(--browser-accent-color) !important;
+}
+
+html.custom-theme div:not([class^="addressbar"]) > [class^="browser-bar-btn"] {
   background: var(--browser-accent-color) !important;
 }
 
