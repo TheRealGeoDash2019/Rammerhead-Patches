@@ -61,6 +61,14 @@ html.custom-theme [class^="addressbar-menu-item-"][style="background-color: rgba
   color: var(--browser-text-primary-color);
 }
 
+html.custom-theme [class^="browser-bar-btn"] {
+  background: var(--browser-accent-color-dark) !important;
+}
+
+html.custom-theme [class^="browser-bar-btn"]:hover {
+  background: var(--browser-accent-color) !important;
+}
+
 html.custom-theme [class^="browser-bar"], html.custom-theme [class^="chrome-tabs-optional-shadow-below-bottom-bar"], html.custom-theme [class^="browser-bar-btn"][class$="enabled"]:hover, html.custom-theme [class^="rhnewtab-oldui-btn-container"] span:hover, html.custom-theme [class^="chrome-tabs"] [class^="chrome-tabs-bottom-bar"], html.custom-theme #root [class^="browser"], html.custom-theme [class^="addressbar-btn"]:hover {
   background: var(--browser-accent-color) !important;
 }
@@ -100,12 +108,4 @@ html.custom-theme div[class^="browser-tab"] [class^="rhpages"] {
   height: 100%;
   background-color: var(--browser-ntp-color);
   box-shadow: inset 0px 0px 20px 0px var(--browser-accent-color-dark);
-}
-
-html.custom-theme [class^="browser-bar-btn"] {
-  background: var(--browser-accent-color-dark) !important;
-}
-
-html.custom-theme [class^="browser-bar-btn"]:hover {
-  background: var(--browser-accent-color) !important;
 }
