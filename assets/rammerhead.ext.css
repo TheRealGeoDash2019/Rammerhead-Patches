@@ -13,6 +13,10 @@ html.custom-theme {
   --browser-text-secondary-color: #ddd;
 }
 
+html, body {
+  overflow: hidden;
+}
+
 div[class^="rhnewtab-header-ad"] {
   display: none !important;
 }
