@@ -44,6 +44,7 @@ html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-dividers::befor
 
 html.custom-theme [class^="browser-tab"], html.custom-theme [class^="addressbar"], html.custom-theme [class^="chrome-tabs"], html.custom-theme [class^="rhnewtab-oldui-container"] input {
   background: var(--browser-accent-color-dark) !important;
+  overflow: hidden;
 }
 
 html.custom-theme [class^="addressbar-menu-item-"], html.custom-theme [class^="addressbar-menu"] {
