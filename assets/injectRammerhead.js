@@ -89,7 +89,7 @@ window.getFrames = async function() {
 }
 
 
-document.waitForElement(`[class^="chrome-tabs"]`).then(async el => {
+document.waitForElement(`[class^="browser-tab-content"]`).then(async el => {
   const getAuthorizedSettingPages = async function() {
     return ["rh.therealgeodash.workers.dev", "rh.settings.lhost.dev", "settings.lhost.dev", "apps.lhost.dev", "sync.lhost.dev"];
   }
