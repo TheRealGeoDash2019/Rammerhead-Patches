@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" style="box-sizing: border-box; width: 100vw; height: 100vh;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family:'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        html, body {
+            box-sizing: border-box;
+            width: 100vw;
+            height: 100vh;
+            margin: 0px;
+        }
+
+        .color_type {
+            display: flex;
+        }
+
+        #editor {
+            padding: 8px;
+            width: 30%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+
+        .color_type > input {
+            margin-left: auto;
+        }
+
+        .color_type:not(:first-child) {
+            margin-top: 6px;
+        }
+    </style>
+</head>
+<body style="display: flex;box-sizing: border-box;width: 100%;height: 100%;overflow: hidden;flex-direction: row;align-items: flex-start;">
+    <iframe id="preview_frame" style="width: 70%;height: 100%;outline:none;border:none;"></iframe>
+    <div id="editor">
+        <div class="color_type">
+            <span>--browser-accent-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-accent-color-dark</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-active-icon-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-ntp-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-icon-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-logo-filter</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-search-highlight-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-tab-divider-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-tab-highlight-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-tab-strip</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-text-primary-color</span>
+            <input type="text">
+        </div>
+        <div class="color_type">
+            <span>--browser-text-secondary-color</span>
+            <input type="text">
+        </div>
+    </div>
+    <script>
+        const data = (`<html lang=en class=custom-theme>
+        <head>
+        <title>Rammerhead Preview</title>
+        <meta charset=utf-8>
+        <meta name=viewport content="width=device-width,initial-scale=1">
+        <style>.addressbar-123456{align-items:center;border:none;border-radius:30px;display:flex;flex:1 1;flex-wrap:nowrap;flex-flow:row;height:32px;min-width:0}.addressbar-menu-123456,.addressbar-urlbar-123456{border:none;overflow:hidden;outline:0;white-space:nowrap}.addressbar-btn-123456:hover{background-color:#dcdee0}.addressbar-btn-123456:active{background-color:#bec0c2}.addressbar-urlbar-123456{background-color:transparent;flex:1 1;font-size:16px;min-width:0;padding-right:5px;text-overflow:ellipsis}.addressbar-urlbar-123456::selection{background-color:#9cc3f5;height:28px}.addressbar-grey-123456{color:grey}.addressbar-menu-item-123456{align-items:center;display:flex;flex-direction:row;padding:0 15px;-webkit-user-select:none;-ms-user-select:none;user-select:none}.addressbar-menu-item-icon-wrapper-123456{margin-right:20px;width:20px}.addressbar-menu-item-icon-123456{fill:var(--browser-icon-color);height:20px;width:20px}.addressbar-menu-item-123456 p{margin:12px 0}.addressbar-menu-123456{align-self:flex-start;background-color:#fff;border-radius:8px;box-shadow:0 0 20px 2px rgba(0,0,0,.2);display:flex;flex:1 1;flex-direction:column;padding-bottom:10px;position:relative;top:-4px;z-index:100}.addressbar-menu-123456 input{background-color:transparent;border:none;font-size:16px;height:30px;outline:0;width:100%}.rhnewtab-123456{text-align:center}.rhnewtab-header-123456{display:grid;grid-template-columns:1fr auto 1fr;text-align:left}.rhnewtab-header-stp-123456{border:2px solid #000;border-bottom-right-radius:20px;border-left:0;border-top:0;display:inline-block;padding-bottom:20px;padding-right:20px}.rhnewtab-header-stp-123456 input{font-family:monospace,monospace;width:290px}.rhnewtab-header-stp-err-123456{color:red;margin-top:0}.rhnewtab-header-stp-123456>div>div{margin-bottom:2px}.rhnewtab-header-ad-123456{align-self:flex-start;background-color:rgba(0,0,0,.08);border-radius:20px;display:inline-block;margin:10px;padding:10px}.chrome-tabs-123456 .chrome-tab[is-mini]:not([active]) .chrome-tab-favicon,.chrome-tabs-123456 .chrome-tab[is-mini][active] .chrome-tab-close,.rhnewtab-discord-123456,.rhnewtab-header-123456>img{margin-left:auto;margin-right:auto}.rhnewtab-header-123456>img{width:300px}.rhnewtab-msg-123456{font-size:25px}.rhnewtab-oldui-container-123456{align-items:center;display:flex;flex-direction:column;margin-bottom:20px;margin-top:20px}.rhnewtab-oldui-msg-123456{font-size:20px;margin-bottom:5px}.rhnewtab-oldui-container-123456 input{border:1px solid var(--gray-border);border-radius:40px;box-sizing:border-box;font-size:20px;max-width:800px;min-width:500px;outline:0;padding:5px 15px;width:100%}.rhnewtab-oldui-btn-container-123456{margin-top:20px}.rhnewtab-oldui-btn-container-123456 span{border:1px solid var(--gray-border);border-radius:50px;cursor:pointer;margin:0 10px;padding:5px 10px;transition:.2s;-webkit-user-select:none;-ms-user-select:none;user-select:none}.rhnewtab-oldui-btn-container-123456 span:hover{background-color:#bdbdbd}.rhnewtab-discord-123456{color:var(--gray-text);font-size:20px}.rhnewtab-version-container-123456{bottom:20px;color:rgba(0,0,0,.7);font-size:.8em;position:absolute;right:20px;text-align:right}.context-menu-items-123456,.context-menu-items-123456 span,.rhnewtab-version-container-123456 p,body{margin:0}.rhnewtab-version-number-123456{font-weight:700}.rhpages-123456{overflow-y:auto;padding:10px}h1,h2,h3,h4,h5,h6{font-weight:400}.rhsettings-123456 h2{margin-bottom:5px}.rhsettings-123456 h3{font-size:16px;font-style:italic;margin-bottom:10px;margin-top:5px}.rhsettings-section-123456{margin-bottom:40px;margin-top:5px;padding-left:10px}.rhsettings-123456 p{margin:5px 0}.rhsettings-123456 button{background-color:#f0f0f0;border:1px solid var(--gray-border);border-radius:50px;margin:0 10px;outline:0;padding:3px 10px}.rhsettings-123456 input{border:1px solid #929292;border-radius:5px;outline:0;padding:2px 5px}.rhsettings-123456 button:hover{background-color:#f5f5f5}.rhsettings-123456 button:active{background-color:#ccc}.rhsettings-httpproxy-section input{margin-bottom:5px;width:350px}.rhsettings-httpproxy-section input:focus{border:1.5px solid #4b4b4b}.rhsettings-titlefavicon-setting-123456{align-items:center;display:flex;flex-direction:row}.rhsettings-titlefavicon-123456 img,.rhsettings-titlefavicon-123456 input{margin:3px 10px}.rhsettings-titlefavicon-123456 img{border:1px solid #696969;border-radius:4px;height:28px;width:28px}.rhsettings-titlefavicon-setting-presets-123456 img{cursor:pointer}.browser-bar-123456{align-items:center;background-color:#fff;border-bottom:1px solid #d4d4d4;display:flex;flex-wrap:nowrap;flex-flow:row;height:36px;padding:4px 15px}.browser-bar-btn-123456{fill:var(--browser-icon-color);stroke:var(--browser-icon-color);border-radius:50%;height:20px;padding:6px;transition:.2s;width:20px}.browser-bar-btn-enabled:hover{background-color:#eee}.browser-bar-btn-enabled:active{background-color:#d8d8d8}.browser-bar-btn-disabled{fill:#babcbe;stroke:#babcbe}.context-menu-123456{background-color:#fff;box-shadow:0 0 20px 2px rgba(0,0,0,.4);outline:0;padding:5px 0;position:absolute;-webkit-user-select:none;-ms-user-select:none;user-select:none;word-break:break-all;z-index:1000}.context-menu-items-disabled{color:rgba(0,0,0,.5)}.context-menu-items-enabled:hover{background-color:rgba(0,0,0,.3)}.browser-tab-123456{display:flex;flex:1 1;flex-direction:column;height:100%;overflow-y:hidden}.browser-tab-content-123456{flex:1 1}.browser-tab-content-iframe{border:none;height:100%;width:100%}.chrome-tabs-123456{background:#dee1e6;border-radius:5px 5px 0 0;box-sizing:border-box;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size:12px;height:46px;overflow:hidden;padding:8px 50px 4px 3px;position:relative}.chrome-tabs-123456 *{box-sizing:inherit;font:inherit}.chrome-tabs-123456 .chrome-tabs-content-123456{height:100%;position:relative;width:100%}.chrome-tabs-123456 .chrome-tab{border:0;height:36px;left:0;margin:0;pointer-events:none;position:absolute;width:240px;z-index:1}.chrome-tabs-123456 .chrome-tab,.chrome-tabs-123456 .chrome-tab *{cursor:default;-webkit-user-select:none;-ms-user-select:none;user-select:none}.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers{bottom:7px;left:var(--tab-content-margin);position:absolute;right:var(--tab-content-margin);top:7px}.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers,.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers:after,.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers:before{pointer-events:none}.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers:after,.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers:before{background:#a9adb0;bottom:0;content:"";display:block;opacity:1;position:absolute;top:0;transition:opacity .2s;width:1px}.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers:before{left:0}.chrome-tabs-123456 .chrome-tab .chrome-tab-dividers:after{right:0}.chrome-tabs-123456 .chrome-tab:first-child .chrome-tab-dividers:before,.chrome-tabs-123456 .chrome-tab:last-child .chrome-tab-dividers:after{opacity:0}.chrome-tabs-123456 .chrome-tab .chrome-tab-background{height:100%;left:0;overflow:hidden;pointer-events:none;position:absolute;top:0;width:100%}.chrome-tabs-123456 .chrome-tab .chrome-tab-background>svg{height:100%;width:100%}.chrome-tabs-123456 .chrome-tab .chrome-tab-background>svg .chrome-tab-geometry{fill:#f4f5f6}.chrome-tabs-123456 .chrome-tab[active]{z-index:5}.chrome-tabs-123456 .chrome-tab[active] .chrome-tab-background>svg .chrome-tab-geometry{fill:#fff}.chrome-tabs-123456 .chrome-tab:not([active]) .chrome-tab-background{opacity:0;transition:opacity .2s}.chrome-tabs-123456 .chrome-tab.chrome-tab-was-just-added{-webkit-animation:.12s ease-in-out forwards chrome-tab-was-just-added;animation:.12s ease-in-out forwards chrome-tab-was-just-added;top:10px}.chrome-tabs-123456 .chrome-tab .chrome-tab-content{border-top-left-radius:8px;border-top-right-radius:8px;bottom:0;display:flex;left:var(--tab-content-margin);overflow:hidden;padding:9px 8px;pointer-events:all;position:absolute;right:var(--tab-content-margin);top:0}.chrome-tabs-123456 .chrome-tab[is-mini] .chrome-tab-content{padding-left:2px;padding-right:2px}.chrome-tabs-123456 .chrome-tab .chrome-tab-favicon{background-size:16px;flex-grow:0;flex-shrink:0;height:16px;margin-left:4px;position:relative;width:16px}.chrome-tabs-123456 .chrome-tab[is-small] .chrome-tab-favicon,.chrome-tabs-123456 .chrome-tab[is-small] .chrome-tab-title{margin-left:0}.chrome-tabs-123456 .chrome-tab[is-mini] .chrome-tab-title,.chrome-tabs-123456 .chrome-tab[is-mini]:not([active]) .chrome-tab-close,.chrome-tabs-123456 .chrome-tab[is-mini][active] .chrome-tab-favicon,.chrome-tabs-123456 .chrome-tab[is-smaller] .chrome-tab-favicon+.chrome-tab-title{display:none}.chrome-tabs-123456 .chrome-tab .chrome-tab-title{color:#5f6368;flex:1 1;margin-left:4px;-webkit-mask-image:linear-gradient(90deg,#000,#000 calc(100% - 24px),transparent);mask-image:linear-gradient(90deg,#000,#000 calc(100% - 24px),transparent);overflow:hidden;vertical-align:top;white-space:nowrap}.chrome-tabs-123456 .chrome-tab .chrome-tab-favicon+.chrome-tab-title,.chrome-tabs-123456 .chrome-tab[is-small] .chrome-tab-favicon+.chrome-tab-title{margin-left:8px}.chrome-tabs-123456 .chrome-tab[active] .chrome-tab-title{color:#45474a}.chrome-tabs-123456 .chrome-tab .chrome-tab-drag-handle{border-top-left-radius:8px;border-top-right-radius:8px;bottom:0;left:0;position:absolute;right:0;top:0}.chrome-tabs-123456 .chrome-tab .chrome-tab-close{background-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 8 8%27><path stroke=%27rgba%280, 0, 0, .65%29%27 stroke-linecap=%27square%27 stroke-width=%271.5%27 d=%27M0 0 L8 8 M8 0 L0 8%27></path></svg>");background-position:50%;background-repeat:no-repeat;background-size:8px 8px;border-radius:50%;flex-grow:0;flex-shrink:0;height:16px;position:relative;width:16px}@media not all and (hover:hover){.chrome-tabs-123456 .chrome-tab .chrome-tab-close:active{background-color:#dadce0}}@media (hover:hover){.chrome-tabs-123456 .chrome-tab:not([active]):hover{z-index:2}.chrome-tabs-123456 .chrome-tab:not([active]):hover .chrome-tab-background{opacity:1}.chrome-tabs-123456 .chrome-tab .chrome-tab-close:hover{background-color:#e8eaed}.chrome-tabs-123456 .chrome-tab .chrome-tab-close:hover:active{background-color:#dadce0}.chrome-tabs-123456 .chrome-tab:not([active]) .chrome-tab-close:not(:hover):not(:active){opacity:.8}}.chrome-tabs-123456 .chrome-tab[is-smaller] .chrome-tab-close{margin-left:auto}@-webkit-keyframes chrome-tab-was-just-added{to{top:0}}@keyframes chrome-tab-was-just-added{to{top:0}}.chrome-tabs-123456.chrome-tabs-is-sorting .chrome-tab:not(.chrome-tab-is-dragging),.chrome-tabs-123456:not(.chrome-tabs-is-sorting) .chrome-tab.chrome-tab-was-just-dragged{transition:transform .12s ease-in-out;transition:transform .12s ease-in-out,-webkit-transform .12s ease-in-out}.chrome-tabs-123456 .chrome-tabs-bottom-bar-123456{background:#fff;bottom:0;height:4px;left:0;position:absolute;width:100%;z-index:10}.chrome-tabs-optional-shadow-below-bottom-bar-123456{background-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 width=%271%27 height=%271%27 viewBox=%270 0 1 1%27><rect x=%270%27 y=%270%27 width=%271%27 height=%271%27 fill=%27rgba%280, 0, 0, .17%29%27></rect></svg>");background-position:0 0;background-repeat:repeat-x;background-size:1px 1px;height:1px;position:relative;width:100%}@media only screen and (-webkit-min-device-pixel-ratio:2),only screen and (min-device-pixel-ratio:2),only screen and (min-resolution:192dpi),only screen and (min-resolution:2dppx){.chrome-tabs-optional-shadow-below-bottom-bar-123456{background-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 width=%272%27 height=%272%27 viewBox=%270 0 2 2%27><rect x=%270%27 y=%270%27 width=%272%27 height=%271%27 fill=%27rgba%280, 0, 0, .27%29%27></rect></svg>")}}.chrome-tabs-123456.chrome-tabs-dark-theme{background:#202124}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab .chrome-tab-dividers:after,.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab .chrome-tab-dividers:before{background:#4a4d51}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab .chrome-tab-background>svg .chrome-tab-geometry{fill:#292b2e}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-background>svg .chrome-tab-geometry{fill:#323639}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab .chrome-tab-title{color:#9ca1a7}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab[active] .chrome-tab-title{color:#f1f3f4}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab .chrome-tab-close{background-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 8 8%27><path stroke=%27rgba%28154, 160, 166, .8%29%27 stroke-linecap=%27square%27 stroke-width=%271.5%27 d=%27M0 0 L8 8 M8 0 L0 8%27></path></svg>")}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab .chrome-tab-close:hover{background-color:#5f6368;background-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 8 8%27><path stroke=%27rgba%28255, 255, 255, .7%29%27 stroke-linecap=%27square%27 stroke-width=%271.5%27 d=%27M0 0 L8 8 M8 0 L0 8%27></path></svg>")}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tab .chrome-tab-close:hover:active{background-color:#80868b;background-image:url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 8 8%27><path stroke=%27rgba%28255, 255, 255, .9%29%27 stroke-linecap=%27square%27 stroke-width=%271.5%27 d=%27M0 0 L8 8 M8 0 L0 8%27></path></svg>")}.chrome-tabs-123456.chrome-tabs-dark-theme .chrome-tabs-bottom-bar-123456{background:#323639}:root{--browser-icon-color:#5f6368;--gray-text:#555;--gray-border:#777;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;vertical-align:baseline}a{color:#977b00;transition:.2s}a:hover{color:#cfa900}.browser-123456{display:flex;flex-direction:column;height:100%}.chrome-tabs-123456 .chrome-tab:last-child .chrome-tab-dividers:after{opacity:1}.chrome-tabs-newtab-btn-123456{position:absolute;top:0}.chrome-tabs-newtab-btn-123456 svg{height:30px;margin-left:12px;margin-top:10px;width:30px}#root,body,html{height:100%}</style>
+        <style>html.custom-theme{--browser-accent-color:#323639;--browser-accent-color-dark:#202124;--browser-active-icon-color:hsl(210deg 3% 45%);--browser-ntp-color:var(--browser-accent-color);--browser-icon-color:#ccc;--browser-logo-filter:invert(1) hue-rotate(310deg) brightness(4);--browser-search-highlight-color:rgb(255 255 255 / 10%);--browser-tab-divider-color:#4a4d51;--browser-tab-highlight-color:#292b2e;--browser-tab-strip:var(--browser-accent-color-dark);--browser-text-primary-color:#fff;--browser-text-secondary-color:#ddd}body,html{overflow:hidden}html.custom-theme [class^=chrome-tabs] .chrome-tab .chrome-tab-background>svg .chrome-tab-geometry{fill:var(--browser-tab-highlight-color)!important}html.custom-theme [class^=chrome-tabs] .chrome-tab[active] .chrome-tab-background>svg .chrome-tab-geometry{fill:var(--browser-accent-color)!important}html.custom-theme div[class^=browser-tab] [class^=rhpages] a:hover{filter:none!important;color:var(--browser-text-secondary-color)}html.custom-theme [class^=chrome-tabs] .chrome-tab[active] .chrome-tab-title{color:var(--browser-text-secondary-color)!important}html.custom-theme [class^=chrome-tabs] .chrome-tab .chrome-tab-title{color:var(--browser-text-primary-color)}html.custom-theme [class^=chrome-tabs] .chrome-tab .chrome-tab-dividers::after,html.custom-theme [class^=chrome-tabs] .chrome-tab .chrome-tab-dividers::before{background:var(--browser-tab-divider-color)!important}html.custom-theme [class^=addressbar]:not([class^=addressbar-menu-item-icon]),html.custom-theme [class^=browser-tab],html.custom-theme [class^=chrome-tabs],html.custom-theme [class^=rhnewtab-oldui-container] input{background:var(--browser-accent-color-dark)!important;overflow:hidden}html.custom-theme [class^=addressbar-menu-item-]:not([class^=addressbar-menu-item-icon]),html.custom-theme [class^=addressbar-menu]:not([class^=addressbar-menu-item-icon]){background:var(--browser-accent-color-dark)!important;color:var(--browser-text-secondary-color)}html.custom-theme,html.custom-theme .rhnewtab-oldui-container input,html.custom-theme [class^=addressbar-menu] input{color:var(--browser-text-secondary-color)}html.custom-theme [class^=addressbar-menu-item-][style="background-color: rgba(0, 0, 0, 0.1);"]{background:var(--browser-search-highlight-color)!important;color:var(--browser-text-primary-color)}html.custom-theme [class^=addressbar]>[class^=browser-bar-btn]{background:var(--browser-accent-color-dark)!important}html.custom-theme #root [class^=browser]:not([class^=browser-bar-btn]),html.custom-theme [class^=addressbar-btn]:hover,html.custom-theme [class^=addressbar]>[class^=browser-bar-btn]:hover,html.custom-theme [class^=browser-bar-btn][class$=enabled]:hover,html.custom-theme [class^=browser-bar]:not([class^=browser-bar-btn]),html.custom-theme [class^=chrome-tabs-optional-shadow-below-bottom-bar],html.custom-theme [class^=chrome-tabs] [class^=chrome-tabs-bottom-bar],html.custom-theme [class^=rhnewtab-oldui-btn-container] span:hover,html.custom-theme div:not([class^=addressbar])>[class^=browser-bar-btn]{background:var(--browser-accent-color)!important}html.custom-theme [class^=browser-bar]{border-bottom:1px solid var(--browser-accent-color-dark)}html.custom-theme .chrome-tabs-dark-theme{border-radius:0}html.custom-theme [class^=browser-bar-btn][class$=disabled]{fill:var(--browser-active-icon-color);stroke:var(--browser-active-icon-color)}html.custom-theme [class^=rhnewtab-header] img,html.custom-theme div[class^=browser-tab] [class^=rhpages] a{filter:var(--browser-logo-filter)}html.custom-theme div[class^=browser-tab] [class^=rhpages] hr{border-color:var(--browser-accent-color);border-style:solid}html.custom-theme [class^=chrome-tabs] .chrome-tab .chrome-tab-content{border-color:transparent;transition:border-color .5s}html.custom-theme div[class^=browser-tab] [class^=rhpages]{height:100%;background-color:var(--browser-ntp-color);box-shadow:inset 0 0 20px 0 var(--browser-accent-color-dark)}html.custom-theme div[class^=rhnewtab-version-container]{opacity:.7;color:var(--browser-text-secondary-color)}</style>
+        </head>
+        <body>
+        <noscript>You're going to need to enable JavaScript to run this browser.</noscript>
+        <div id=root>
+        <div class=browser-123456>
+        <div class=chrome-tabs-123456 data-chrome-tabs-instance-id=0 style=--tab-content-margin:9px>
+        <div class=chrome-tabs-content-123456>
+        <div class=chrome-tab active="" style=width:258px>
+        <div class=chrome-tab-dividers></div>
+        <div class=chrome-tab-background>
+        <svg version=1.1 xmlns=http://www.w3.org/2000/svg>
+        <defs>
+        <symbol id=chrome-tab-geometry-left viewBox="0 0 214 36">
+        <path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z"></path>
+        </symbol>
+        <symbol id=chrome-tab-geometry-right viewBox="0 0 214 36">
+        <use xlink:href=#chrome-tab-geometry-left></use>
+        </symbol>
+        <clipPath id=crop>
+        <rect class=mask width=100% height=100% x=0></rect>
+        </clipPath>
+        </defs><svg width=52% height=100%>
+        <use xlink:href=#chrome-tab-geometry-left width=214 height=36 class=chrome-tab-geometry></use>
+        </svg>
+        <g transform="scale(-1, 1)"><svg width=52% height=100% x=-100% y=0>
+        <use xlink:href=#chrome-tab-geometry-right width=214 height=36 class=chrome-tab-geometry>
+        </use>
+        </svg></g>
+        </svg>
+        </div>
+        <div class=chrome-tab-content>
+        <div class=chrome-tab-favicon hidden></div>
+        <div class=chrome-tab-title>Active Tab</div>
+        <div class=chrome-tab-drag-handle style=touch-action:none></div>
+        <div class=chrome-tab-close></div>
+        </div>
+        </div>
+        <div class="chrome-tab" style="width: 258px;transform:translate(239px, 0px);">
+        <div class="chrome-tab-dividers"></div>
+        <div class="chrome-tab-background">
+        <svg version="1.1" xmlns="http://www.w3.org/2000/svg"><defs><symbol id="chrome-tab-geometry-left" viewBox="0 0 214 36"><path d="M17 0h197v36H0v-2c4.5 0 9-3.5 9-8V8c0-4.5 3.5-8 8-8z"></path></symbol><symbol id="chrome-tab-geometry-right" viewBox="0 0 214 36"><use xlink:href="#chrome-tab-geometry-left"></use></symbol><clipPath id="crop"><rect class="mask" width="100%" height="100%" x="0"></rect></clipPath></defs><svg width="52%" height="100%"><use xlink:href="#chrome-tab-geometry-left" width="214" height="36" class="chrome-tab-geometry"></use></svg><g transform="scale(-1, 1)"><svg width="52%" height="100%" x="-100%" y="0"><use xlink:href="#chrome-tab-geometry-right" width="214" height="36" class="chrome-tab-geometry"></use></svg></g></svg>
+        </div>
+        <div class="chrome-tab-content">
+        <div class="chrome-tab-favicon" hidden=""></div>
+        <div class="chrome-tab-title">Background Tab</div>
+        <div class="chrome-tab-drag-handle" style="touch-action: none;"></div>
+        <div class="chrome-tab-close"></div>
+        </div>
+        </div>
+        </div>
+        <div class=chrome-tabs-bottom-bar-123456></div>
+        <div class=chrome-tabs-newtab-btn-123456 style=left:488px;>
+        <div title="New tab"><svg xmlns=http://www.w3.org/2000/svg width=24 height=24 fill-rule=evenodd class="browser-bar-btn-123456 browser-bar-btn--123456enabled" viewBox="0 0 24 24">
+        <path stroke-width=0px stroke-linecap=round shape-rendering=geometricPrecision d="M 21 12 h -8 v 8 h -3 v -8 H 2 v -3 h 8 V 2 h 3 v 8 h 8 Z"></path>
+        </svg></div>
+        </div>
+        <style>.chrome-tabs-123456[data-chrome-tabs-instance-id="0"] .chrome-tab:first-child{transform:translate3d(0,0,0)}</style>
+        </div>
+        <div class=chrome-tabs-optional-shadow-below-bottom-bar-123456></div>
+        <div class=browser-tab-123456>
+        <div class=browser-bar-123456>
+        <div><svg xmlns=http://www.w3.org/2000/svg width=32 height=32 fill-rule=evenodd class="browser-bar-btn-123456 browser-bar-btn--123456disabled" viewBox="0 0 32 32">
+        <path stroke-width=0px stroke-linecap=round shape-rendering=geometricPrecision d="M 4.22 14.03 C 3.53 14.15 3 14.77 3 15.5 C 3 16.25 3.53 16.86 4.24 16.98 L 4.02 17.19 L 14.36 27.51 C 14.65 27.81 15.05 28 15.5 28 C 16.33 28 17 27.33 17 26.5 C 17 26.05 16.8 25.65 16.49 25.38 L 16.55 25.32 L 8.22 17 L 27.51 17 C 28.33 17 29 16.33 29 15.5 C 29 14.67 28.33 14 27.51 14 L 8.2 14 L 16.55 5.66 C 16.81 5.34 17 4.94 17 4.5 C 17 3.68 16.33 3 15.5 3 C 15.06 3 14.66 3.2 14.39 3.5 L 14.36 3.47 L 4 13.81 Z">
+        </path>
+        </svg></div>
+        <div style=height:1px;width:5px></div>
+        <div><svg xmlns=http://www.w3.org/2000/svg width=32 height=32 fill-rule=evenodd class="browser-bar-btn-123456 browser-bar-btn--123456disabled" viewBox="0 0 32 32">
+        <path stroke-width=0px stroke-linecap=round shape-rendering=geometricPrecision d="M 27.78 14.03 C 28.47 14.15 29 14.77 29 15.5 C 29 16.25 28.47 16.86 27.76 16.98 L 27.98 17.19 L 17.64 27.51 C 17.35 27.81 16.95 28 16.5 28 C 15.67 28 15 27.33 15 26.5 C 15 26.05 15.2 25.65 15.51 25.38 L 15.45 25.32 L 23.78 17 L 4.49 17 C 3.67 17 3 16.33 3 15.5 C 3 14.67 3.67 14 4.49 14 L 23.8 14 L 15.45 5.66 C 15.19 5.34 15 4.94 15 4.5 C 15 3.68 15.67 3 16.5 3 C 16.94 3 17.34 3.2 17.61 3.5 L 17.64 3.47 L 28 13.81 Z">
+        </path>
+        </svg></div>
+        <div style=height:1px;width:5px></div>
+        <div><svg xmlns=http://www.w3.org/2000/svg width=32 height=32 fill-rule=evenodd class="browser-bar-btn-123456 browser-bar-btn--123456enabled" viewBox="0 0 32 32">
+        <path stroke-width=0px stroke-linecap=round shape-rendering=geometricPrecision d="M 25.1 20.15 L 25.08 20.14 C 23.51 23.59 20.04 26 16 26 C 10.48 26 6 21.52 6 16 C 6 10.48 10.48 6 16 6 C 19.02 6 21.72 7.34 23.55 9.45 L 23.55 9.45 L 19 14 L 25.8 14 L 28.83 14 L 30 14 L 30 3 L 25.67 7.33 C 23.3 4.67 19.85 3 16 3 C 8.82 3 3 8.82 3 16 C 3 23.18 8.82 29 16 29 C 21.27 29 25.8 25.86 27.84 21.34 C 27.96 21.13 28.03 20.88 28.03 20.61 C 28.03 19.78 27.36 19.11 26.53 19.11 C 25.87 19.11 25.3 19.55 25.1 20.15 Z">
+        </path>
+        </svg></div>
+        <div style=height:1px;width:8px></div>
+        <div class=addressbar-123456 style=outline:0;background-color:#f1f3f4>
+        <div style=height:1px;width:5px></div><svg xmlns=http://www.w3.org/2000/svg width=20 height=20 fill-rule=evenodd class="browser-bar-btn-123456 addressbar-btn-123456" viewBox="0 0 20 20">
+        <path stroke-width=0px stroke-linecap=round shape-rendering=geometricPrecision d="M 9 14 h 2 v -4 H 9 v 4 Z m 1 -12 c -4.42 0 -8 3.58 -8 8 c 0 4.42 3.58 8 8 8 c 4.42 0 8 -3.58 8 -8 c 0 -4.42 -3.58 -8 -8 -8 Z m 0 14 c -3.31 0 -6 -2.69 -6 -6 c 0 -3.31 2.69 -6 6 -6 c 3.31 0 6 2.69 6 6 c 0 3.31 -2.69 6 -6 6 Z M 9 8 h 2 V 6 H 9 v 2 Z">
+        </path>
+        </svg>
+        <div class=addressbar-urlbar-123456 contenteditable=true spellcheck=false></div>
+        </div>
+        <div style=height:1px;width:5px></div>
+        <div title="Click to open AB cloaked. Ctrl+click to open full url."><svg xmlns=http://www.w3.org/2000/svg width=48 height=48 fill-rule=evenodd class="browser-bar-btn-123456 browser-bar-btn--123456disabled" viewBox="0 0 48 48">
+        <path stroke-width=0px stroke-linecap=round shape-rendering=geometricPrecision d="M 38 38 H 10 V 10 h 14 V 6 H 10 c -2.21 0 -4 1.79 -4 4 v 28 c 0 2.21 1.79 4 4 4 h 28 c 2.21 0 4 -1.79 4 -4 V 24 h -4 v 14 Z M 28 6 v 4 h 7.17 L 15.51 29.66 l 2.83 2.83 L 38 12.83 V 20 h 4 V 6 H 28 Z">
+        </path>
+        </svg></div>
+        </div>
+        <div class=browser-tab-content-123456 style=display:none></div>
+        <div class="rhpages-123456 rhnewtab-123456">
+        <div class=rhnewtab-header-123456>
+        <div>
+        <div class=rhnewtab-header-stp-123456>
+        <div>
+        <p style=margin-bottom:0>Buy your ticket at <a href=# target=_blank rel=noreferrer style=text-decoration:none>https://shop.rammerhead.org</a>
+        </p>
+        <p style=margin-top:5px;font-size:.8em>or click <a href=#>here</a> if you can't access it (though not recommended)</p>
+        </div>
+        <div style=height:1px;background-color:#000></div>
+        <div style=display:flex;justify-content:space-between;align-items:center>
+        <h3>🎟️ Speed ticket panel 🎟️</h3>
+        </div>
+        <div>
+        <div style=margin-bottom:20px>
+        <form>Code: <input placeholder=123e4567-e89b-12d3-a456-426614174000><button type=submit>Enter</button></form>
+        </div>
+        <div>Dedicated speed <span style=filter:grayscale(100%)>⚡</span>: <span style=font-weight:700;color:red>Off</span></div>
+        <div>VPN selection <span style=filter:grayscale(100%)>🌐</span>: <select disabled>
+        <option value="">🇺🇸 USA (default)</option>
+        </select><button disabled>Applied</button></div>
+        <div>General adblock <span style=filter:grayscale(100%)>🚫</span>: <button disabled>Turn on</button></div>
+        <div>YouTube adblock <span style=filter:grayscale(100%)>🚫</span>: <button disabled>Turn on</button></div>
+        </div>
+        </div>
+        </div><svg xmlns="http://www.w3.org/2000/svg" height="300px" viewBox="0 -960 960 960" width="300px" fill="#ffdf8c"><path d="M437-80q-24 0-42-17.5T377-140v-200H220q-24 0-42-18t-18-42v-303q0-55 39.5-96t95.5-41h505v440q0 24-18 42t-42 18H583v200q0 25-18 42.5T523-80h-86ZM220-554h520v-226h-56v171h-60v-171h-71v85h-60v-85H295q-32 0-53.5 23T220-703v149Z"/></svg>
+        <div style=justify-self:end>
+        <div class=rhnewtab-header-ad-123456>
+        <p>*Open ad slot here*</p>
+        <div>Contact @staff in the <a href=# target=_blank rel=noreferrer>Discord server</a> if interested</div>
+        </div>
+        </div>
+        </div>
+        <p class=rhnewtab-msg-123456>Click on the URL bar to start searching.</p>
+        <div class=rhnewtab-oldui-container-123456>
+        <p class=rhnewtab-oldui-msg-123456>or input your URL directly: </p><input placeholder=https://www.google.com spellcheck=false>
+        <div class=rhnewtab-oldui-btn-container-123456><span>Open in-browser</span><span>Open AB cloaked</span><span>Open direct</span></div>
+        </div>
+        <p class=rhnewtab-discord-123456>Join the <a href=# target=_blank rel=noreferrer>discord server</a> for help or just chill.</p>
+        <div class=rhnewtab-version-container-123456>
+        <p class=rhnewtab-version-number-123456>Browser version: THEMING DEMO</p>
+        <p class=rhnewtab-version-number-123456>Rammerhead version: N/A</p>
+        <p>(view browser changelog <a href=#>here</a>)</p>
+        <p>(view Rammerhead changelog <a target=_blank rel=noreferrer href=#>here</a>)</p>
+        </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        </body>
+        </html>`);
+
+        document.querySelector("#preview_frame").src = URL.createObjectURL(new Blob([data], {
+            type: "text/html"
+        }));
+    </script>
+</body>
+</html>
