@@ -39,7 +39,7 @@
 <body style="display: flex;box-sizing: border-box;width: 100%;height: 100%;overflow: hidden;flex-direction: row;align-items: flex-start;">
     <iframe id="preview_frame" style="width: 70%;height: 100%;outline:none;border:none;"></iframe>
     <div id="editor">
-        <button id="load">Load Style Values</button>
+        <button id="load">Init Style Values</button>
         <div class="color_type" key="--browser-accent-color">
             <span>--browser-accent-color</span>
             <input type="text">
@@ -91,12 +91,18 @@
     </div>
     <script>
         document.querySelector("#load").addEventListener("click", function() {
-            const data = Array.from(document.querySelector("#preview_frame").contentWindow.document.querySelector(`html`).computedStyleMap().entries()).filter(e => e[0].startsWith("--")).map(e => [e[0], e[1][0][0]]);
+            const previewFrame = document.querySelector("#preview_frame");
+            const data = Array.from(previewFrame.contentWindow.document.querySelector(`html`).computedStyleMap().entries()).filter(e => e[0].startsWith("--")).map(e => [e[0], e[1][0][0]]);
             for (const entry of data) {
                 const associatedInput = document.querySelector(`div.color_type[key="${entry[0]}"] input`);
                 if (associatedInput) {
                     associatedInput.value = entry[1];
                 }
+                associatedInput.addEventListener("keydown", function(event) {
+                    if (event.keyCode === 13) {
+                        return (event.preventDefault(), previewFrame.contentDocument.querySelector(`html`).style.setProperty(entry[0], event.target.value));
+                    }
+                });
             }
         })
     </script>
