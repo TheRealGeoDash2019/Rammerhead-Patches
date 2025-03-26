@@ -40,59 +40,64 @@
     <iframe id="preview_frame" style="width: 70%;height: 100%;outline:none;border:none;"></iframe>
     <div id="editor">
         <button id="load">Load Style Values</button>
-        <div class="color_type">
+        <div class="color_type" key="--browser-accent-color">
             <span>--browser-accent-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-accent-color-dark">
             <span>--browser-accent-color-dark</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-active-icon-color">
             <span>--browser-active-icon-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-ntp-color">
             <span>--browser-ntp-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-icon-color">
             <span>--browser-icon-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-logo-filter">
             <span>--browser-logo-filter</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-search-highlight-color">
             <span>--browser-search-highlight-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-tab-divider-color">
             <span>--browser-tab-divider-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-tab-highlight-color">
             <span>--browser-tab-highlight-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-tab-strip">
             <span>--browser-tab-strip</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-text-primary-color">
             <span>--browser-text-primary-color</span>
             <input type="text">
         </div>
-        <div class="color_type">
+        <div class="color_type" key="--browser-text-secondary-color">
             <span>--browser-text-secondary-color</span>
             <input type="text">
         </div>
     </div>
     <script>
         document.querySelector("#load").addEventListener("click", function() {
-            const data = Object.fromEntries(Array.from(document.querySelector("#preview_frame").contentWindow.document.querySelector(`html`).computedStyleMap().entries()).filter(e => e[0].startsWith("--")).map(e => [e[0], e[1][0][0]]));
-            console.log(data);
+            const data = Array.from(document.querySelector("#preview_frame").contentWindow.document.querySelector(`html`).computedStyleMap().entries()).filter(e => e[0].startsWith("--")).map(e => [e[0], e[1][0][0]]);
+            for (const entry of data) {
+                const associatedInput = document.querySelector(`div.color_type[key="${entry[0]}"] input`);
+                if (associatedInput) {
+                    associatedInput.value = entry[1];
+                }
+            }
         })
     </script>
     <script>
