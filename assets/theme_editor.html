@@ -97,12 +97,12 @@
                 const associatedInput = document.querySelector(`div.color_type[key="${entry[0]}"] input`);
                 if (associatedInput) {
                     associatedInput.value = entry[1];
+                    associatedInput.addEventListener("keydown", function(event) {
+                        if (event.keyCode === 13) {
+                            return (event.preventDefault(), previewFrame.contentDocument.querySelector(`html`).style.setProperty(entry[0], event.target.value));
+                        }
+                    });
                 }
-                associatedInput.addEventListener("keydown", function(event) {
-                    if (event.keyCode === 13) {
-                        return (event.preventDefault(), previewFrame.contentDocument.querySelector(`html`).style.setProperty(entry[0], event.target.value));
-                    }
-                });
             }
         })
     </script>
