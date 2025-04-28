@@ -125,7 +125,7 @@
                     "*/",
                     "",
                     "html.custom-theme {",
-                    ...data.map(e => `  ${e[0]}: ${e[1]}`),
+                    ...data.map(e => `  ${e[0]}: ${e[1]};`),
                     "}"
                 ].join("\n");
                 const buff = new Blob([cssFile]);
