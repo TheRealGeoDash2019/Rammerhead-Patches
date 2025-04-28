@@ -112,6 +112,10 @@
     </script>
     <script>
         const hideEditor = (new URLSearchParams(location.search)).has("hidesidebar") || false;
+        if (hideEditor) {
+            document.querySelector("#preview_frame").width = "100%";
+            document.querySelector("#editor").display = "none";
+        }
         const autoloadTheme = (new URLSearchParams(location.search)).get("remote") || null;
         const data = (`<html lang=en class=custom-theme>
         <head>
