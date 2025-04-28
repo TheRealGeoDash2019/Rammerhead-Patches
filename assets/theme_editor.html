@@ -43,7 +43,10 @@
 <body style="display: flex;box-sizing: border-box;width: 100%;height: 100%;overflow: hidden;flex-direction: row;align-items: flex-start;">
     <iframe id="preview_frame" style="width: 70%;height: 100%;outline:none;border:none;"></iframe>
     <div id="editor">
-        <button id="load">Init Style Values</button>
+        <div class="button_row" style="display: flex;flex-direction: row;">
+            <button id="load" style="margin-right: 4px;">Init Style Values</button>
+            <button id="export">Export Style Values</button>
+        </div>
         <div class="color_type" key="--browser-accent-color">
             <span>--browser-accent-color</span>
             <input type="text">
