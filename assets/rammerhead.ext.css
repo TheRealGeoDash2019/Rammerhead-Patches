@@ -126,5 +126,6 @@ html.custom-theme div[class^="rhnewtab-version-container"] {
 }
 
 html.custom-theme [class^=chrome-tab-close]:hover{
-  background-color:var(--browser-accent-color) !important;
+  background-color: transparent !important;
+  filter: invert(1);
 }
