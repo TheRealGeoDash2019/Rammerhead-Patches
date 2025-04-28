@@ -112,6 +112,30 @@
                 }
             }
         })
+
+        document.querySelector("#export").addEventListener("click", function() {
+            const previewFrame = document.querySelector("#preview_frame");
+            const data = Array.from(previewFrame.contentWindow.document.querySelector(`html`).computedStyleMap().entries()).filter(e => e[0].startsWith("--")).map(e => [e[0], e[1][0][0]]);
+            for (const entry of data) {
+                const cssFile = [
+                    "/*",
+                    "  @name    Custom Theme",
+                    "  @author  You!",
+                    "  @version 0.0.1",
+                    "*/",
+                    "html.custom-theme {",
+                    ...data.map(e => `${e[0]}: ${e[1]}`),
+                    "}"
+                ].join("\n");
+                const buff = new Blob([cssFile]);
+                const uri = URL.createObjectURL(buff);
+                const a = document.createElement("a");
+                a.href = uri;
+                a.download = "CustomTheme.theme.css";
+                a.click();
+                a.addEventListener("click", () => a.remove());
+            }
+        })
     </script>
     <script>
         const hideEditor = (new URLSearchParams(location.search)).has("hidesidebar") || false;
