@@ -521,7 +521,7 @@
       const burstSandbox = function() {
         // Rammerhead Clients usually have %hammerhead%
         console.debug("Bursting Rammerhead Sandbox");
-        return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; return Func(`return window.top`)();")(); 
+        return Function("const Func = window[`%hammerhead%`].nativeMethods.Function; const findParent = Func(`try { return (window.top.location.href,window.top); } catch { return (window.parent.location.href,window.parent); }`); return Func(`fP`,`return fP();`)(findParent);")();
       }
 
       let windowethToppeth; 
