@@ -4,7 +4,7 @@
   @version  0.0.2
 */
 
-html.custom-theme {
+html {
     --browser-icon-color: #888;
     --browser-accent-color-dark: #000000;
     --browser-accent-color: #151515;
