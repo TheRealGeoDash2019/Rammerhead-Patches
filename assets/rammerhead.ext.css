@@ -14,7 +14,7 @@ html.custom-theme {
 }
 
 html, body {
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 div[class^="rhnewtab-header-ad"] {
@@ -31,7 +31,7 @@ html.custom-theme [class^="chrome-tabs"] .chrome-tab[active] .chrome-tab-backgro
 
 html.custom-theme div[class^="browser-tab"] [class^="rhpages"] a:hover {
   filter: none !important;
-  color: var(--browser-text-secondary-color);
+  color: var(--browser-text-secondary-color) !important;
 }
 
 html.custom-theme [class^="chrome-tabs"] .chrome-tab[active] .chrome-tab-title {
@@ -39,7 +39,7 @@ html.custom-theme [class^="chrome-tabs"] .chrome-tab[active] .chrome-tab-title {
 }
 
 html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-title {
-  color: var(--browser-text-primary-color);
+  color: var(--browser-text-primary-color) !important;
 }
 
 html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-dividers::before, html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-dividers::after {
@@ -48,21 +48,21 @@ html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-dividers::befor
 
 html.custom-theme [class^="browser-tab"], html.custom-theme [class^="addressbar"]:not([class^="addressbar-menu-item-icon"]), html.custom-theme [class^="chrome-tabs"], html.custom-theme [class^="rhnewtab-oldui-container"] input {
   background: var(--browser-accent-color-dark) !important;
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 html.custom-theme [class^="addressbar-menu-item-"]:not([class^="addressbar-menu-item-icon"]), html.custom-theme [class^="addressbar-menu"]:not([class^="addressbar-menu-item-icon"]) {
   background: var(--browser-accent-color-dark) !important;
-  color: var(--browser-text-secondary-color);
+  color: var(--browser-text-secondary-color) !important;
 }
 
 html.custom-theme [class^="addressbar-menu"] input {
-  color: var(--browser-text-secondary-color);
+  color: var(--browser-text-secondary-color) !important;
 }
 
 html.custom-theme [class^="addressbar-menu-item-"][style="background-color: rgba(0, 0, 0, 0.1);"] {
   background: var(--browser-search-highlight-color) !important;
-  color: var(--browser-text-primary-color);
+  color: var(--browser-text-primary-color) !important;
 }
 
 
@@ -84,48 +84,48 @@ html.custom-theme [class^="browser-bar"]:not([class^="browser-bar-btn"]), html.c
 }
 
 html.custom-theme [class^="browser-bar"] {
-  border-bottom: 1px solid var(--browser-accent-color-dark);
+  border-bottom: 1px solid var(--browser-accent-color-dark) !important;
 }
 
 html.custom-theme .chrome-tabs-dark-theme {
-  border-radius: 0px;
+  border-radius: 0px !important;
 }
 
 html.custom-theme, html.custom-theme .rhnewtab-oldui-container input {
-  color: var(--browser-text-secondary-color);
+  color: var(--browser-text-secondary-color) !important;
 }
 
 html.custom-theme [class^="browser-bar-btn"][class$="disabled"] {
-  fill: var(--browser-active-icon-color);
-  stroke: var(--browser-active-icon-color);
+  fill: var(--browser-active-icon-color) !important;
+  stroke: var(--browser-active-icon-color) !important;
 }
 
 html.custom-theme [class^="rhnewtab-header"] img, html.custom-theme div[class^="browser-tab"] [class^="rhpages"] a {
-  filter: var(--browser-logo-filter);
+  filter: var(--browser-logo-filter) !important;
 }
 
 html.custom-theme div[class^="browser-tab"] [class^="rhpages"] hr {
-  border-color: var(--browser-accent-color);
-  border-style: solid;
+  border-color: var(--browser-accent-color) !important;
+  border-style: solid !important;
 }
 
 html.custom-theme [class^="chrome-tabs"] .chrome-tab .chrome-tab-content {
-  border-color: transparent;
-  transition: border-color 0.5s;
+  border-color: transparent !important;
+  transition: border-color 0.5s !important;
 }
 
 html.custom-theme div[class^="browser-tab"] [class^="rhpages"] {
-  height: 100%;
-  background-color: var(--browser-ntp-color);
-  box-shadow: inset 0px 0px 20px 0px var(--browser-accent-color-dark);
+  height: 100% !important;
+  background-color: var(--browser-ntp-color) !important;
+  box-shadow: inset 0px 0px 20px 0px var(--browser-accent-color-dark) !important;
 }
 
 html.custom-theme div[class^="rhnewtab-version-container"] {
-  opacity: 0.7;
-  color: var(--browser-text-secondary-color);
+  opacity: 0.7 !important;
+  color: var(--browser-text-secondary-color) !important;
 }
 
 html.custom-theme [class^=chrome-tab-close]:hover{
   background-color: transparent !important;
-  filter: invert(1);
+  filter: invert(1) !important;
 }
