@@ -1,0 +1,52 @@
+{
+  "Themes": [
+    {
+      "name": "AMOLED for Rammerhead",
+      "description": null,
+      "version": "0.0.2",
+      "author": "TheRealGeoDash2019",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/AMOLED.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/AMOLED.theme.css"
+    },
+    {
+      "name": "CrimeScene.theme",
+      "description": null,
+      "version": null,
+      "author": "Unknown Author",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/CrimeScene.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/CrimeScene.theme.css"
+    },
+    {
+      "name": "PurpleOverflow.theme",
+      "description": null,
+      "version": null,
+      "author": "Unknown Author",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/PurpleOverflow.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/PurpleOverflow.theme.css"
+    },
+    {
+      "name": "Spotified.theme",
+      "description": null,
+      "version": null,
+      "author": "Unknown Author",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/Spotified.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/Spotified.theme.css"
+    },
+    {
+      "name": "Dark Theme for Rammerhead",
+      "description": null,
+      "version": "0.0.1",
+      "author": "TheRealGeoDash2019",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/ThemeTemplate.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/ThemeTemplate.css"
+    },
+    {
+      "name": "WhereAreTheLights.theme",
+      "description": null,
+      "version": null,
+      "author": "Unknown Author",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/WhereAreTheLights.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/WhereAreTheLights.theme.css"
+    }
+  ]
+}
