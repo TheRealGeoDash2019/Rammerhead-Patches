@@ -26,9 +26,9 @@
     },
     {
       "name": "Spotified",
-      "description": null,
-      "version": null,
-      "author": "Unknown Author",
+      "description": "If you thought that you couldn't get Spotify colors outside of the App. Man you'll be suprised...",
+      "version": "0.0.2",
+      "author": "TheRealGeoDash2019",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/Spotified.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/Spotified.theme.css"
     },
