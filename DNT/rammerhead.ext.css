@@ -1,0 +1,112 @@
+html, body {
+  overflow: hidden !important;
+}
+
+html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-background>svg .chrome-tab-geometry {
+  fill: var(--browser-tab-highlight-color) !important;
+}
+
+html.custom-theme .chrome-tabs .chrome-tab[active] .chrome-tab-background > svg .chrome-tab-geometry {
+  fill: var(--browser-accent-color) !important;
+}
+
+html.custom-theme .chrome-tabs .chrome-tab[active] .chrome-tab-title {
+  color: var(--browser-text-secondary-color) !important;
+}
+
+html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-title {
+  color: var(--browser-text-primary-color) !important;
+}
+
+html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-dividers::before, html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-dividers::after {
+  background: var(--browser-tab-divider-color) !important;
+}
+
+html.custom-theme .chrome-tabs, html.custom-theme .addressbar:not(.addressbar-menu-item-icon), html.custom-theme .chrome-tabs, html.custom-theme .rhnewtab-oldui-container input {
+  background: var(--browser-accent-color-dark) !important;
+  overflow: hidden !important;
+}
+
+html.custom-theme .addressbar-menu-item:not(.addressbar-menu-item-icon), html.custom-theme .addressbar-menu:not(.addressbar-menu-item-icon) {
+  background: var(--browser-accent-color-dark) !important;
+  color: var(--browser-text-secondary-color) !important;
+}
+
+html.custom-theme .addressbar-menu input {
+  color: var(--browser-text-secondary-color) !important;
+}
+
+html.custom-theme .addressbar-menu-item[style^="background-color:"] {
+  background: var(--browser-search-highlight-color) !important;
+  color: var(--browser-text-primary-color) !important;
+}
+
+
+
+html.custom-theme .addressbar > .browser-bar-btn {
+  background: var(--browser-accent-color-dark) !important;
+}
+
+html.custom-theme .addressbar > .browser-bar-btn:hover {
+  background: var(--browser-accent-color) !important;
+}
+
+html.custom-theme div:not(.addressbar) > .browser-bar-btn {
+  background: var(--browser-accent-color) !important;
+}
+
+html.custom-theme .browser-bar:not(.browser-bar-btn), 
+html.custom-theme .chrome-tabs-optional-shadow-below-bottom-bar, 
+html.custom-theme .browser-bar-btn[class$="enabled"]:hover,
+html.custom-theme .rhnewtab-oldui-btn-container span:hover, 
+html.custom-theme .chrome-tabs .chrome-tabs-bottom-bar, 
+html.custom-theme #root .browser:not(.browser-bar-btn), html.custom-theme .addressbar-btn"]:hover {
+  background: var(--browser-accent-color) !important;
+}
+
+html.custom-theme .browser-bar {
+  border-bottom: 1px solid var(--browser-accent-color-dark) !important;
+}
+
+html.custom-theme .chrome-tabs-dark-theme {
+  border-radius: 0px !important;
+}
+
+html.custom-theme, html.custom-theme .rhnewtab-oldui-container input {
+  color: var(--browser-text-secondary-color) !important;
+}
+
+html.custom-theme .browser-bar-btn[class$="disabled"] {
+  fill: var(--browser-active-icon-color) !important;
+  stroke: var(--browser-active-icon-color) !important;
+}
+
+html.custom-theme .rhnewtab-header img, html.custom-theme div.browser-tab .rhpages a {
+  filter: var(--browser-logo-filter) !important;
+}
+
+html.custom-theme div.browser-tab .rhpages hr {
+  border-color: var(--browser-accent-color) !important;
+  border-style: solid !important;
+}
+
+html.custom-theme .chrome-tabs .chrome-tab .chrome-tab-content {
+  border-color: transparent !important;
+  transition: border-color 0.5s !important;
+}
+
+html.custom-theme div.browser-tab .rhpages {
+  height: 100% !important;
+  background-color: var(--browser-ntp-color) !important;
+  box-shadow: inset 0px 0px 20px 0px var(--browser-accent-color-dark) !important;
+}
+
+html.custom-theme div.rhnewtab-version-container {
+  opacity: 0.7 !important;
+  color: var(--browser-text-secondary-color) !important;
+}
+
+html.custom-theme .chrome-tab-close:hover{
+  background-color: transparent !important;
+  filter: invert(1) !important;
+}
