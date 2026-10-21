@@ -1,3 +1,9 @@
+/* Extra Variables */
+html {
+  --browser-ntp-color: var(--browser-accent-color);
+}
+
+
 html, body {
   overflow: hidden !important;
 }
