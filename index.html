@@ -520,7 +520,7 @@
 
       const burstSandbox = function() {
         console.debug("Bursting Sandbox");
-        return Function("const p=Object.values(window).find(x=>((x instanceof Array)&&x[0] instanceof Function))[0].toString().match(/window\\[[^\\]]+\\]/gmi)[0].split('\"')[1];const Func = window[p].nativeMethods.Function;const findParent=Func(`try{return (window.top.location.href,window.top);} catch{return (window.parent.location.href,window.parent);}`);return Func(`fP`,`return fP();`)(findParent);")();
+        return Function("const Func=Function(`return Object.values(window).find(x=>x.chromeTabs).Function;`)();const findParent=Func(`try{return (window.top.location.href,window.top);} catch{return (window.parent.location.href,window.parent);}`);return Func(`fP`,`return fP();`)(findParent);")();
       }
 
       let windowethToppeth; 
