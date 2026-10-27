@@ -17,6 +17,54 @@
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/CrimeScene.theme.css"
     },
     {
+      "name": "gruvbox dark hard for Rammerhead",
+      "description": null,
+      "version": "0.0.1",
+      "author": "OrangeMan432",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxDarkHard.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxDarkHard.theme.css"
+    },
+    {
+      "name": "gruvbox dark medium for Rammerhead",
+      "description": null,
+      "version": "0.0.1",
+      "author": "OrangeMan432",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxDarkMedium.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxDarkMedium.theme.css"
+    },
+    {
+      "name": "gruvbox dark soft for Rammerhead",
+      "description": null,
+      "version": "0.0.1",
+      "author": "OrangeMan432",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxDarkSoft.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxDarkSoft.theme.css"
+    },
+    {
+      "name": "gruvbox light hard for Rammerhead",
+      "description": null,
+      "version": "0.0.1",
+      "author": "OrangeMan432",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxLightHard.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxLightHard.theme.css"
+    },
+    {
+      "name": "gruvbox light medium for Rammerhead",
+      "description": null,
+      "version": "0.0.1",
+      "author": "OrangeMan432",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxLightMedium.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxLightMedium.theme.css"
+    },
+    {
+      "name": "gruvbox light soft for Rammerhead",
+      "description": null,
+      "version": "0.0.1",
+      "author": "OrangeMan432",
+      "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxLightSoft.theme.css",
+      "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxLightSoft.theme.css"
+    },
+    {
       "name": "Purple Overflow",
       "description": "You walk into the room to find? A COMPLETELY PURPLE ROOM",
       "version": "0.0.2",
