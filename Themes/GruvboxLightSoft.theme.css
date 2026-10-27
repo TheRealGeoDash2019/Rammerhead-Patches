@@ -1,0 +1,19 @@
+/*
+  @name     gruvbox light soft for Rammerhead
+  @author   OrangeMan432
+  @version  0.0.1
+*/
+
+html.custom-theme {
+    --browser-icon-color: #bdae93;
+    --browser-accent-color-dark: #f2e5bc;
+    --browser-accent-color: #ebdbb2;
+    --browser-tab-strip: var(--browser-accent-dark);
+    --browser-tab-divider-color: var(--browser-accent-color);
+    --browser-tab-highlight-color: #d5c4a1;
+    --browser-search-highlight-color: rgb(145 145 145 / 10%);
+    --browser-text-primary-color: #3c3836;
+    --browser-text-secondary-color: #3c3836;
+    --browser-active-icon-color: #928374;
+    --browser-logo-filter: saturate(0) opacity(0.5) invert(1);
+}
