@@ -5,6 +5,7 @@
       "description": "Why go dark when you can go Darker?",
       "version": "0.0.2",
       "author": "TheRealGeoDash2019",
+      "accent": "#151515",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/AMOLED.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/AMOLED.theme.css"
     },
@@ -13,6 +14,7 @@
       "description": "Hope you aren't afraid of blood...",
       "version": "0.0.2",
       "author": "TheRealGeoDash2019",
+      "accent": "#770000",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/CrimeScene.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/CrimeScene.theme.css"
     },
@@ -21,6 +23,7 @@
       "description": null,
       "version": "0.0.1",
       "author": "OrangeMan432",
+      "accent": "#3c3836",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxDarkHard.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxDarkHard.theme.css"
     },
@@ -29,6 +32,7 @@
       "description": null,
       "version": "0.0.1",
       "author": "OrangeMan432",
+      "accent": "#3c3836",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxDarkMedium.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxDarkMedium.theme.css"
     },
@@ -37,6 +41,7 @@
       "description": null,
       "version": "0.0.1",
       "author": "OrangeMan432",
+      "accent": "#3c3836",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxDarkSoft.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxDarkSoft.theme.css"
     },
@@ -45,6 +50,7 @@
       "description": null,
       "version": "0.0.1",
       "author": "OrangeMan432",
+      "accent": "#ebdbb2",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxLightHard.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxLightHard.theme.css"
     },
@@ -53,6 +59,7 @@
       "description": null,
       "version": "0.0.1",
       "author": "OrangeMan432",
+      "accent": "#ebdbb2",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxLightMedium.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxLightMedium.theme.css"
     },
@@ -61,6 +68,7 @@
       "description": null,
       "version": "0.0.1",
       "author": "OrangeMan432",
+      "accent": "#ebdbb2",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/GruvboxLightSoft.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/GruvboxLightSoft.theme.css"
     },
@@ -69,6 +77,7 @@
       "description": "You walk into the room to find? A COMPLETELY PURPLE ROOM",
       "version": "0.0.2",
       "author": "TheRealGeoDash2019",
+      "accent": "#510080",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/PurpleOverflow.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/PurpleOverflow.theme.css"
     },
@@ -77,6 +86,7 @@
       "description": "If you thought that you couldn't get Spotify colors outside of the App. Man you'll be suprised...",
       "version": "0.0.2",
       "author": "TheRealGeoDash2019",
+      "accent": "#0c5a27",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/Spotified.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/Spotified.theme.css"
     },
@@ -85,6 +95,7 @@
       "description": null,
       "version": "0.0.1",
       "author": "TheRealGeoDash2019",
+      "accent": "#323639",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/ThemeTemplate.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/ThemeTemplate.css"
     },
@@ -93,6 +104,7 @@
       "description": "Who turned off the lights?",
       "version": "0.0.2",
       "author": "TheRealGeoDash2019",
+      "accent": "#090909",
       "url": "https://cdn.jsdelivr.net/gh/TheRealGeoDash2019/Rammerhead-Patches@latest/Themes/WhereAreTheLights.theme.css",
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/WhereAreTheLights.theme.css"
     }
