@@ -54,6 +54,10 @@ jobs:
               const author = extract('author') || "Unknown Author";
               const version = extract('version');
 
+              // Extract the browser accent color
+              const accentMatch = content.match(/--browser-accent-color:\s*([^;]+);/);
+              const accent = accentMatch ? accentMatch[1].trim() : null;
+
               const url = `https://cdn.jsdelivr.net/gh/${repo}@latest/${themeDir}/${file}`;
               const githubUrl = `https://github.com/${repo}/blob/${branch}/${themeDir}/${file}`;
 
@@ -62,6 +66,7 @@ jobs:
                 description,
                 version,
                 author,
+                accent, // Now included in the JSON output
                 url,
                 githubUrl
               });
