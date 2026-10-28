@@ -66,6 +66,7 @@ jobs:
                 description,
                 version,
                 author,
+                verified: (author === `${context.repo.owner}`),
                 accent, // Now included in the JSON output
                 url,
                 githubUrl
