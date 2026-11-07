@@ -1,7 +1,7 @@
 {
   "Themes": [
     {
-      "name": "AMOLED for Rammerhead",
+      "name": "AMOLED",
       "description": "Why go dark when you can go Darker?",
       "version": "0.0.2",
       "author": "TheRealGeoDash2019",
@@ -101,9 +101,9 @@
       "githubUrl": "https://github.com/TheRealGeoDash2019/Rammerhead-Patches/blob/main/Themes/Spotified.theme.css"
     },
     {
-      "name": "Dark Theme for Rammerhead",
+      "name": "Theme Template (Default Dark)",
       "description": null,
-      "version": "0.0.1",
+      "version": "0.0.0",
       "author": "TheRealGeoDash2019",
       "verified": true,
       "accent": "#323639",
