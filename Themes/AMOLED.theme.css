@@ -1,11 +1,11 @@
 /*
-  @name          AMOLED for Rammerhead
+  @name          AMOLED
   @author        TheRealGeoDash2019
   @description   Why go dark when you can go Darker?
   @version       0.0.2
 */
 
-html {
+html.custom-theme {
     --browser-icon-color: #888;
     --browser-accent-color-dark: #000000;
     --browser-accent-color: #151515;
